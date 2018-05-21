@@ -9,6 +9,8 @@ public class Plateau_du_jeu {
     	StdDraw.clear(StdDraw.WHITE);
 		StdDraw.picture(800,450, "Images/Risk_game_map.png" );
 		StdDraw.show(20);
+		
+		
 	}
 	
 	
