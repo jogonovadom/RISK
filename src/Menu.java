@@ -1,9 +1,6 @@
 import java.awt.Font;
-
 import edu.princeton.cs.introcs.StdDraw;
-
-
-
+import java.lang.Object;
 
 public class Menu {
 	Menu suivant;
@@ -209,318 +206,27 @@ public class Menu {
     				
     		}
     		
-    		else if (cptm==3 & case2==true) {
-    			AjouterTexte();
-    			
-    			
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
-    				if (StdDraw.isMousePressed()) {
-    					StdDraw.disableDoubleBuffering();
-    					cptm++;
-    					
-    				}
-    				
+    		else if (cptm>2) { //tous les noms de joueurs avec 2 joueurs
+    			if (case2==true) {
+    				NomJoueur(true,2);
     			}
-    			else {
-    				StdDraw.picture(800,450, "Images/menu/nom J1 0.png" );
+    			else if (case3==true) {
+    				NomJoueur(true,3);
     			}
-    			
-    		}
-    		else if (cptm==4 & case2==true) {
-    			StdDraw.text(800,495,"Joueur 2");
-    	    	
-    			StdDraw.show(20);
-				if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
-    				if (StdDraw.isMousePressed()) {
-    					StdDraw.disableDoubleBuffering();
-    					Etat = false;
-      					cptm++;
-      				    
-      				}
-				}
-				else {
-				  StdDraw.picture(800,450, "Images/menu/nom J2 0.png" );
-				}
-			}
-    		
-    		else if (cptm==3 & case3==true) {
-    			StdDraw.text(800,495,"Joueur 1");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
-    				if (StdDraw.isMousePressed()) {
-    					StdDraw.disableDoubleBuffering();
-    					cptm++;
-    					
-    				}
+    			else if (case4==true) {
+    				NomJoueur(true,4);
     			}
-    				else {
-        				StdDraw.picture(800,450, "Images/menu/nom J1 0.png" );
-        			}
+    			else if (case5==true) {
+    				NomJoueur(true,5);
     			}
-    		
-    		
-    		else if (cptm==4 & case3==true) {
-    			StdDraw.text(800,495,"Joueur 2");
-    			StdDraw.show(20);
-				if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					cptm++;
-  					
-  				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J2 0.png" );
-				}
-			}
-    		else if (cptm==5 & case3==true) {
-    			StdDraw.text(800,495,"Joueur 3");
-    			StdDraw.show(20);
-					if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				  StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
-    				  if (StdDraw.isMousePressed()) {
-    					StdDraw.disableDoubleBuffering();
-    					Etat = false;
-      					cptm++;
-      				    
-      				}
-					}
-					else {
-						StdDraw.picture(800,450, "Images/menu/nom J3 0.png" );
-					}
+    			else if (case6==true) {
+    				NomJoueur(true,6);
     			}
-    		else if (cptm==3 & case4==true) {
-    			StdDraw.text(800,495,"Joueur 1");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
-    				if (StdDraw.isMousePressed()) {
-    					StdDraw.disableDoubleBuffering();
-    					cptm++;
-    					
-    				}
-    			}
-    				else {
-        				StdDraw.picture(800,450, "Images/menu/nom J1 0.png" );
-        			}
-    			}
-    		
-    		
-    		else if (cptm==4 & case4==true) {
-    			StdDraw.text(800,495,"Joueur 2");
-    			StdDraw.show(20);
-				if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					cptm++;
-  					
-  				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J2 0.png" );
-				}
-			}
-    		else if (cptm==5 & case4==true) {
-    			StdDraw.text(800,495,"Joueur 3");
-    			StdDraw.show(20);
-					if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				  StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
-    				  if (StdDraw.isMousePressed()) {
-      					cptm++;
-      					
-      				}
-					}
-					else {
-						StdDraw.picture(800,450, "Images/menu/nom J3 0.png" );
-					}
-    			}
-    		else if (cptm==6 & case4==true) {
-    			StdDraw.text(800,495,"Joueur 4");
-    			StdDraw.show(20);
-				if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J4 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					StdDraw.disableDoubleBuffering();
-  					Etat = false;
-    					cptm++;
-    				    
-    				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J4 0.png" );
-				}
-			}
-    		else if (cptm==3 & case5==true) {
-    			StdDraw.text(800,495,"Joueur 1");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
-    				if (StdDraw.isMousePressed()) {
-    					StdDraw.disableDoubleBuffering();
-    					cptm++;
-    					
-    				}
-    			}
-    				else {
-        				StdDraw.picture(800,450, "Images/menu/nom J1 0.png" );
-        			}
-    			}
-    		
-    		
-    		else if (cptm==4 & case5==true) {
-    			StdDraw.text(800,495,"Joueur 2");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					cptm++;
-  					
-  				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J2 0.png" );
-				}
-			}
-    		else if (cptm==5 & case5==true) {
-    			StdDraw.text(800,495,"Joueur 3");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				  StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
-    				  if (StdDraw.isMousePressed()) {
-      					cptm++;
-      					
-      				}
-					}
-					else {
-						StdDraw.picture(800,450, "Images/menu/nom J3 0.png" );
-					}
-    			}
-    		else if (cptm==6 & case5==true) {
-    			StdDraw.text(800,495,"Joueur 4");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J4 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					cptm++;
-  					
-  				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J4 0.png" );
-				}
-			}
-    		else if (cptm==7 & case5==true) {
-    			StdDraw.text(800,495,"Joueur 5");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J5 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					StdDraw.disableDoubleBuffering();
-  					Etat = false;
-    					cptm++;
-    				    
-    				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J5 0.png" );
-				}
-			}
-    		else if (cptm==3 & case6==true) {
-    			StdDraw.text(800,495,"Joueur 1");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
-    				if (StdDraw.isMousePressed()) {
-    					StdDraw.disableDoubleBuffering();
-    					cptm++;
-    					
-    				}
-    			}
-    				else {
-        				StdDraw.picture(800,450, "Images/menu/nom J1 0.png" );
-        			}
-    			}
-    		
-    		
-    		else if (cptm==4 & case6==true) {
-    			StdDraw.text(800,495,"Joueur 2");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					cptm++;
-  					
-  				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J2 0.png" );
-				}
-			}
-    		else if (cptm==5 & case6==true) {
-    			StdDraw.text(800,495,"Joueur 3");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-    				  StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
-    				  if (StdDraw.isMousePressed()) {
-      					cptm++;
-      					
-      				}
-					}
-					else {
-						StdDraw.picture(800,450, "Images/menu/nom J3 0.png" );
-					}
-    			}
-    		else if (cptm==6 & case6==true) {
-    			StdDraw.text(800,495,"Joueur 4");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J4 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					cptm++;
-  					
-  				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J4 0.png" );
-				}
-			}
-    		else if (cptm==7 & case6==true) {
-    			StdDraw.text(800,495,"Joueur 5");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J5 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					cptm++;
-  					
-  				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J5 0.png" );
-				}
-			}
-    		else if (cptm==8 & case6==true) {
-    			StdDraw.text(800,495,"Joueur 6");
-    			StdDraw.show(20);
-    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
-				  StdDraw.picture(800,450, "Images/menu/nom J6 1.png" );
-				  if (StdDraw.isMousePressed()) {
-  					StdDraw.disableDoubleBuffering();
-  					Etat = false;
-    					cptm++;
-    				    
-    				}
-				}
-				else {
-					StdDraw.picture(800,450, "Images/menu/nom J6 0.png" );
-				}
-			}
     		if (Etat==false) {
     		Plateau_du_jeu.AfficherPlateau();
     		}
     		}
+    	}
     	}
     	
     public void AjouterTexte() {
@@ -541,6 +247,74 @@ public class Menu {
     	StdDraw.text(800,495,texte);
     	
 		StdDraw.show(20);
+    }
+    public void Image(int i, int j) {
+    	if (i==1) {
+    		if (j==1) {
+    			StdDraw.picture(800,450, "Images/menu/nom J1 0.png" );
+    		}
+    		else {
+    			StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
+    		}
+    	}
+    	else if (i==2) {
+    		if (j==1) {
+    			StdDraw.picture(800,450, "Images/menu/nom J2 0.png" );
+    		}
+    		else {
+    			StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
+    		}
+    	}
+    	else if (i==3) {
+    		if (j==1) {
+    			StdDraw.picture(800,450, "Images/menu/nom J3 0.png" );
+    		}
+    		else {
+    			StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
+    		}
+    	}
+    	else if (i==4) {
+    		if (j==1) {
+    			StdDraw.picture(800,450, "Images/menu/nom J4 0.png" );
+    		}
+    		else {
+    			StdDraw.picture(800,450, "Images/menu/nom J4 1.png" );
+    		}
+    	}
+    	else if (i==5) {
+    		if (j==1) {
+    			StdDraw.picture(800,450, "Images/menu/nom J5 0.png" );
+    		}
+    		else {
+    			StdDraw.picture(800,450, "Images/menu/nom J5 1.png" );
+    		}
+    	}
+    	else if (i==6) {
+    		if (j==1) {
+    			StdDraw.picture(800,450, "Images/menu/nom J6 0.png" );
+    		}
+    		else {
+    			StdDraw.picture(800,450, "Images/menu/nom J6 1.png" );
+    		}
+    	}
+    }
+    public boolean NomJoueur(boolean Etat, int p) {
+		int i=1;
+    	while (i<p+1) {
+    		double Xm=StdDraw.mouseX();
+    		double Ym=StdDraw.mouseY();
+    		StdDraw.text(800,495,"Joueur" + i );
+			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
+				Image(i,2);
+				if (StdDraw.isMousePressed()) {
+					i+=1;
+				}
+			}
+			else {
+				Image(i,1);
+			}
+    	}
+    	return Etat=false;
     }
 	
 
