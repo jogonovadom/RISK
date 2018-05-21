@@ -27,7 +27,7 @@ public class Menu {
     	StdDraw.setYscale(0,900);
     	Font font = new Font("SansSerif",Font.BOLD,30);
     	StdDraw.setFont(font);
-    	//les lignes suivantes servent Ã  choisir le nombre de joueurs
+    	//les lignes suivantes servent à  choisir le nombre de joueurs
     	boolean case2;
     	case2=false;
     	
@@ -43,13 +43,13 @@ public class Menu {
     	boolean case6;
     	case6=false;
     	//fin choix
-    	int cptm =1; //numï¿½ro de la page
+    	int cptm =1; //numéro de la page
     	while (true) {
     		double Xm=StdDraw.mouseX();
     		double Ym=StdDraw.mouseY();
     		
     		if (cptm == 1) {
-        		if ( 1600*0.45<Xm && Xm<1600*0.55 && 900*0.36< Ym && Ym <900*0.41 ) {
+        		if ( 704<Xm && Xm<898 && 323< Ym && Ym <365 ) {
         			
         			StdDraw.picture(800,450, "Images/menu/jeu du risk menu 1.png");
         			if (StdDraw.isMousePressed()) {
@@ -57,7 +57,7 @@ public class Menu {
         			}
         		}
         					
-        		else if ( (1600*0.42)<Xm && Xm<(1600*0.58) && (0.23*900)< Ym && Ym <(900*0.28) ) {
+        		else if ( 669<Xm && Xm<930 && 200< Ym && Ym <254 ) {
         			StdDraw.picture(800,450, "Images/menu/jeu du risk menu 2.png");
         		}
         				
@@ -67,19 +67,18 @@ public class Menu {
     		}
     		else if (cptm==2) {
     		    
-    			StdDraw.rectangle(1600*0.157,900*0.427,(1600*(0.166-0.149)/2),900*0.02);
-    			StdDraw.rectangle(1600*(0.157+0.069  ),900*0.427,(1600*(0.166-0.150)/2),900*0.02);
-    			StdDraw.rectangle(1600*(0.157+0.069*2),900*0.427,(1600*(0.166-0.149)/2),900*0.02);
-    			StdDraw.rectangle(1600*(0.157+0.067*3),900*0.427,(1600*(0.166-0.149)/2),900*0.02);
-    			StdDraw.rectangle(1600*(0.157+0.068*4),900*0.427,(1600*(0.166-0.149)/2),900*0.02);
-    			StdDraw.enableDoubleBuffering();                                      
+    			StdDraw.rectangle(252,384.3,13.6,18);
+    			StdDraw.rectangle(361.6,384.3,13.6,18);
+    			StdDraw.rectangle(472,384.3,13.6,18);
+    			StdDraw.rectangle(572.8,384.3,13.6,18);
+    			StdDraw.rectangle(686.4,384.3,13.6,18);  
+    			StdDraw.enableDoubleBuffering();
     			StdDraw.show();
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				StdDraw.picture(800,450, "Images/menu/nombre de joueur 2.png" );
     				
     				if (case2==true) {
-        				StdDraw.filledCircle(1600*0.157,900*0.427,1600*(0.166-0.149)/2);
-        				
+        				StdDraw.filledCircle(252,384.3,13.6);
         		    	case3=false;			
         		    	case4=false;
         		    	case5=false;
@@ -87,7 +86,7 @@ public class Menu {
         			}
     				
     				if (case3==true) {
-        				StdDraw.filledCircle(1600*(0.157+0.069),900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(361.6,384.3,13.6);
         				case2=false;			
         		    	case4=false;
         		    	case5=false;
@@ -95,7 +94,7 @@ public class Menu {
         			}
     				
     				if (case4==true) {
-        				StdDraw.filledCircle(1600*(0.157+0.069*2),900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(472,384.3,13.6);
         				case3=false;			
         		    	case2=false;
         		    	case5=false;
@@ -103,7 +102,7 @@ public class Menu {
         			}
     				
     				if (case5==true) {
-        				StdDraw.filledCircle(1600*(0.157+0.067*3),900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(572.8,384.3,13.6);
         				case3=false;			
         		    	case4=false;
         		    	case2=false;
@@ -111,7 +110,7 @@ public class Menu {
         			}
     				
     				if (case6==true) {
-        				StdDraw.filledCircle(1600*(0.157+0.068*4),900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(686.4,384.3,13.6);
         				case3=false;			
         		    	case4=false;
         		    	case5=false;
@@ -129,81 +128,75 @@ public class Menu {
     				StdDraw.picture(800,450, "Images/menu/nombre de joueur 1.png" );
         			
         			
-        			if (1600*0.14<Xm && Xm<1600*0.165 && 900*0.4< Ym && Ym <900*0.44) { //On affiche les cercles dans les cases ï¿½ cocher
-        				StdDraw.filledCircle(1600*0.157,900*0.427,1600*(0.166-0.149)/2);
+        			if (224<Xm && Xm<264 && 360< Ym && Ym <396) { //On affiche les cercles dans les cases cochées
+        				StdDraw.filledCircle(252,384.3,13.6);
         				if (StdDraw.isMousePressed() ) {
-        					
-        					
-        					case2=true;
+        					case2=true; //2 joueurs
             			}
         			}
         			
 					if (case2==true) {
-        				StdDraw.filledCircle(1600*0.157,900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(252,384.3,13.6);
         				case3=false;			
         		    	case4=false;
         		    	case5=false;
         		    	case6=false;
         			}
 					
-        		    if ( 1600*(0.14+0.069)<Xm && Xm<1600*(0.165+0.069) && 900*0.4< Ym && Ym <900*0.44 ) {
-        				StdDraw.filledCircle(1600*(0.157+0.069),900*0.427,1600*(0.166-0.149)/2);
+        		    if (334.4<Xm && Xm<374.4 && 360< Ym && Ym <396) {
+        				StdDraw.filledCircle(361.6,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
-        					StdDraw.filledCircle(1600*(0.157+0.069),900*0.427,1600*(0.166-0.149)/2);
-        					case3=true;                                 
+        					case3=true; //3 joueurs
             			}
         			}
 					
 					if (case3==true) {
-        				StdDraw.filledCircle(1600*(0.157+0.069),900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(361.6,384.3,13.6);
         				case2=false;			
         		    	case4=false;
         		    	case5=false;
         		    	case6=false;
         			}
 					
-        		    if ( 1600*(0.14+0.069*2)<Xm && Xm<1600*(0.165+0.069*2) && 900*0.4< Ym && Ym <900*0.44 ) {
-        				StdDraw.filledCircle(1600*(0.157+0.069*2),900*0.427,1600*(0.166-0.149)/2);
+        		    if ( 444.8<Xm && Xm<484.8 && 360< Ym && Ym <396) {
+        				StdDraw.filledCircle(472,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
-        					StdDraw.filledCircle(1600*(0.157+0.069*2),900*0.427,1600*(0.166-0.149)/2);
-        					case4=true;
+        					case4=true; //4 joueurs
             			}
         			}
         			
 					if (case4==true) {
-        				StdDraw.filledCircle(1600*(0.157+0.069*2),900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(472,384.3,13.6);
         				case3=false;			
         		    	case2=false;
         		    	case5=false;
         		    	case6=false;
         			}
 					
-        			if ( 1600*(0.14+0.067*3)<Xm && Xm<1600*(0.165+0.067*3) && 900*0.4< Ym && Ym <900*0.44 ) {
-        				StdDraw.filledCircle(1600*(0.157+0.067*3),900*0.427,1600*(0.166-0.149)/2);
+        			if ( 545.6<Xm && Xm<585.6 && 360< Ym && Ym <396) {
+        				StdDraw.filledCircle(572.8,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
-        					StdDraw.filledCircle(1600*(0.157+0.067*3),900*0.427,1600*(0.166-0.149)/2);
-        					case5=true;
+        					case5=true; //5 joueurs
             			}
         			}
         			
 					if (case5==true) {
-        				StdDraw.filledCircle(1600*(0.157+0.067*3),900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(572.8,384.3,13.6);
         				case3=false;			
         		    	case4=false;
         		    	case2=false;
         		    	case6=false;
         			}
 					
-        			if ( 1600*(0.14+0.068*4)<Xm && Xm<1600*(0.165+0.068*4) && 900*0.4< Ym && Ym <900*0.44 ) {
-        				StdDraw.filledCircle(1600*(0.157+0.068*4),900*0.427,1600*(0.166-0.149)/2);
+        			if ( 659.2<Xm && Xm<699.2 && 360< Ym && Ym <396) {
+        				StdDraw.filledCircle(686.4,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
-        					StdDraw.filledCircle(1600*(0.157+0.068*4),900*0.427,1600*(0.166-0.149)/2);
-        					case6=true;
+        					case6=true; //6 joueurs
             			}
         			}
 					
 					if (case6==true) {
-        				StdDraw.filledCircle(1600*(0.157+0.068*4),900*0.427,1600*(0.166-0.149)/2);
+        				StdDraw.filledCircle(686.4,384.3,13.6);
         				case3=false;			
         		    	case4=false;
         		    	case5=false;
@@ -220,7 +213,7 @@ public class Menu {
     			AjouterTexte();
     			
     			
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
     				if (StdDraw.isMousePressed()) {
     					StdDraw.disableDoubleBuffering();
@@ -235,10 +228,10 @@ public class Menu {
     			
     		}
     		else if (cptm==4 & case2==true) {
-    			StdDraw.text(1600*0.5, 900*0.55,"Joueur 2");
+    			StdDraw.text(800,495,"Joueur 2");
     	    	
     			StdDraw.show(20);
-				if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+				if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
     				if (StdDraw.isMousePressed()) {
     					StdDraw.disableDoubleBuffering();
@@ -253,9 +246,9 @@ public class Menu {
 			}
     		
     		else if (cptm==3 & case3==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 1");
+    			StdDraw.text(800,495,"Joueur 1");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
     				if (StdDraw.isMousePressed()) {
     					StdDraw.disableDoubleBuffering();
@@ -270,9 +263,9 @@ public class Menu {
     		
     		
     		else if (cptm==4 & case3==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 2");
+    			StdDraw.text(800,495,"Joueur 2");
     			StdDraw.show(20);
-				if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+				if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					cptm++;
@@ -284,9 +277,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==5 & case3==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 3");
+    			StdDraw.text(800,495,"Joueur 3");
     			StdDraw.show(20);
-					if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+					if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				  StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
     				  if (StdDraw.isMousePressed()) {
     					StdDraw.disableDoubleBuffering();
@@ -300,9 +293,9 @@ public class Menu {
 					}
     			}
     		else if (cptm==3 & case4==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 1");
+    			StdDraw.text(800,495,"Joueur 1");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
     				if (StdDraw.isMousePressed()) {
     					StdDraw.disableDoubleBuffering();
@@ -317,9 +310,9 @@ public class Menu {
     		
     		
     		else if (cptm==4 & case4==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 2");
+    			StdDraw.text(800,495,"Joueur 2");
     			StdDraw.show(20);
-				if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+				if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					cptm++;
@@ -331,9 +324,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==5 & case4==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 3");
+    			StdDraw.text(800,495,"Joueur 3");
     			StdDraw.show(20);
-					if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+					if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				  StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
     				  if (StdDraw.isMousePressed()) {
       					cptm++;
@@ -345,9 +338,9 @@ public class Menu {
 					}
     			}
     		else if (cptm==6 & case4==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 4");
+    			StdDraw.text(800,495,"Joueur 4");
     			StdDraw.show(20);
-				if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+				if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J4 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					StdDraw.disableDoubleBuffering();
@@ -361,9 +354,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==3 & case5==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 1");
+    			StdDraw.text(800,495,"Joueur 1");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
     				if (StdDraw.isMousePressed()) {
     					StdDraw.disableDoubleBuffering();
@@ -378,9 +371,9 @@ public class Menu {
     		
     		
     		else if (cptm==4 & case5==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 2");
+    			StdDraw.text(800,495,"Joueur 2");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					cptm++;
@@ -392,9 +385,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==5 & case5==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 3");
+    			StdDraw.text(800,495,"Joueur 3");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				  StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
     				  if (StdDraw.isMousePressed()) {
       					cptm++;
@@ -406,9 +399,9 @@ public class Menu {
 					}
     			}
     		else if (cptm==6 & case5==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 4");
+    			StdDraw.text(800,495,"Joueur 4");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J4 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					cptm++;
@@ -420,9 +413,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==7 & case5==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 5");
+    			StdDraw.text(800,495,"Joueur 5");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J5 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					StdDraw.disableDoubleBuffering();
@@ -436,9 +429,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==3 & case6==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 1");
+    			StdDraw.text(800,495,"Joueur 1");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				StdDraw.picture(800,450, "Images/menu/nom J1 1.png" );
     				if (StdDraw.isMousePressed()) {
     					StdDraw.disableDoubleBuffering();
@@ -453,9 +446,9 @@ public class Menu {
     		
     		
     		else if (cptm==4 & case6==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 2");
+    			StdDraw.text(800,495,"Joueur 2");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J2 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					cptm++;
@@ -467,9 +460,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==5 & case6==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 3");
+    			StdDraw.text(800,495,"Joueur 3");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
     				  StdDraw.picture(800,450, "Images/menu/nom J3 1.png" );
     				  if (StdDraw.isMousePressed()) {
       					cptm++;
@@ -481,9 +474,9 @@ public class Menu {
 					}
     			}
     		else if (cptm==6 & case6==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 4");
+    			StdDraw.text(800,495,"Joueur 4");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J4 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					cptm++;
@@ -495,9 +488,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==7 & case6==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 5");
+    			StdDraw.text(800,495,"Joueur 5");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J5 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					cptm++;
@@ -509,9 +502,9 @@ public class Menu {
 				}
 			}
     		else if (cptm==8 & case6==true) {
-    			StdDraw.text(1600*0.5,900*0.55,"Joueur 6");
+    			StdDraw.text(800,495,"Joueur 6");
     			StdDraw.show(20);
-    			if (1600*0.44<Xm && Xm<1600*0.498 && 900*0.29< Ym && Ym <900*0.36) {
+    			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				  StdDraw.picture(800,450, "Images/menu/nom J6 1.png" );
 				  if (StdDraw.isMousePressed()) {
   					StdDraw.disableDoubleBuffering();
@@ -545,7 +538,7 @@ public class Menu {
 		//StdDraw.disableDoubleBuffering();
     	}
     	//}
-    	StdDraw.text(1600*0.5,900*0.55,texte);
+    	StdDraw.text(800,495,texte);
     	
 		StdDraw.show(20);
     }
