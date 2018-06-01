@@ -41,7 +41,7 @@ public class Menu {
     	case6=false;
     	//fin choix
     	int cptm =1; //numéro de la page
-    	while (true) {
+    	while (true && Etat==true) {
     		double Xm=StdDraw.mouseX();
     		double Ym=StdDraw.mouseY();
     		
@@ -222,14 +222,14 @@ public class Menu {
     			else if (case6==true) {
     				NomJoueur(true,6);
     			}
-    		if (Etat==false) {
+    		}
+    	}
+    	if (Etat==false) {
     		Plateau_du_jeu.AfficherPlateau();
-    		}
-    		}
     	}
-    	}
+    }
     	
-    public void AjouterTexte() {
+    /*public void AjouterTexte() {
     	
     	String  texte = "Joueur 1";
     	
@@ -247,7 +247,7 @@ public class Menu {
     	StdDraw.text(800,495,texte);
     	
 		StdDraw.show(20);
-    }
+    }*/
     public void Image(int i, int j) {
     	if (i==1) {
     		if (j==1) {
