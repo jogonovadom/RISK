@@ -1,15 +1,15 @@
 
-public class Canon extends Unité {
+public class Canon extends Unite {
 	
 	protected static int puissanceMax=9;
 	protected static int puissanceMin=4;
-	protected static int coût=7;
+	protected static int cout=7;
 	protected static int prioriteAtt=3; 
 	protected static int prioriteDef=2; 
 	protected static int mouvement=1; 
 	
-	public Canon(int puissanceMax, int puissanceMin, int coût, int prioriteAtt, int prioriteDef, int mouvement) {
-		super(puissanceMax, puissanceMin, coût, prioriteAtt, prioriteDef, mouvement);
+	public Canon(int puissanceMax, int puissanceMin, int cout, int prioriteAtt, int prioriteDef, int mouvement) {
+		super(puissanceMax, puissanceMin, cout, prioriteAtt, prioriteDef, mouvement);
 		
 	}
 
@@ -29,12 +29,12 @@ public class Canon extends Unité {
 		Canon.puissanceMin = puissanceMin;
 	}
 
-	public static int getCoût() {
-		return coût;
+	public static int getCout() {
+		return cout;
 	}
 
-	public static void setCoût(int coût) {
-		Canon.coût = coût;
+	public static void setCout(int cout) {
+		Canon.cout = cout;
 	}
 
 	public static int getPrioriteAtt() {

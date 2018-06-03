@@ -1,15 +1,15 @@
 
-public class Cavalier extends Unité {
+public class Cavalier extends Unite {
 	
 	protected static int puissanceMax=7;
 	protected static int puissanceMin=2;
-	protected static int coût=3;
+	protected static int cout=3;
 	protected static int prioriteAtt=1; 
 	protected static int prioriteDef=3; 
 	protected static int mouvement=3; 
 	
-	public Cavalier(int puissanceMax, int puissanceMin, int coût, int prioriteAtt, int prioriteDef, int mouvement) {
-		super(puissanceMax, puissanceMin, coût, prioriteAtt, prioriteDef, mouvement);
+	public Cavalier(int puissanceMax, int puissanceMin, int cout, int prioriteAtt, int prioriteDef, int mouvement) {
+		super(puissanceMax, puissanceMin, cout, prioriteAtt, prioriteDef, mouvement);
 		
 	}
 
@@ -29,12 +29,12 @@ public class Cavalier extends Unité {
 		Cavalier.puissanceMin = puissanceMin;
 	}
 
-	public static int getCoût() {
-		return coût;
+	public static int getCout() {
+		return cout;
 	}
 
-	public static void setCoût(int coût) {
-		Cavalier.coût = coût;
+	public static void setCout(int cout) {
+		Cavalier.cout = cout;
 	}
 
 	public static int getPrioriteAtt() {

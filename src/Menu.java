@@ -6,7 +6,7 @@ public class Menu {
 	Menu suivant;
 	int largeur;
     int longueur;
-    
+    static int NombreJoueur;
     
     public Menu(int largeur, int longueur) {
 		this.largeur = largeur;
@@ -24,7 +24,7 @@ public class Menu {
     	StdDraw.setYscale(0,900);
     	Font font = new Font("SansSerif",Font.BOLD,30);
     	StdDraw.setFont(font);
-    	//les lignes suivantes servent à  choisir le nombre de joueurs
+    	//les lignes suivantes servent a choisir le nombre de joueurs
     	boolean case2;
     	case2=false;
     	
@@ -39,9 +39,8 @@ public class Menu {
     	
     	boolean case6;
     	case6=false;
-    	//fin choix
-    	int cptm =1; //numéro de la page
-    	while (true && Etat==true) {
+    	int cptm =1; //numero de la page
+    	while (Etat==true) {
     		double Xm=StdDraw.mouseX();
     		double Ym=StdDraw.mouseY();
     		
@@ -125,10 +124,11 @@ public class Menu {
     				StdDraw.picture(800,450, "Images/menu/nombre de joueur 1.png" );
         			
         			
-        			if (224<Xm && Xm<264 && 360< Ym && Ym <396) { //On affiche les cercles dans les cases cochées
+        			if (224<Xm && Xm<264 && 360< Ym && Ym <396) { //On affiche les cercles dans les cases cochï¿½es
         				StdDraw.filledCircle(252,384.3,13.6);
         				if (StdDraw.isMousePressed() ) {
         					case2=true; //2 joueurs
+        					NombreJoueur=2;
             			}
         			}
         			
@@ -144,6 +144,7 @@ public class Menu {
         				StdDraw.filledCircle(361.6,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
         					case3=true; //3 joueurs
+        					NombreJoueur=3;
             			}
         			}
 					
@@ -159,6 +160,7 @@ public class Menu {
         				StdDraw.filledCircle(472,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
         					case4=true; //4 joueurs
+        					NombreJoueur=4;
             			}
         			}
         			
@@ -174,6 +176,7 @@ public class Menu {
         				StdDraw.filledCircle(572.8,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
         					case5=true; //5 joueurs
+        					NombreJoueur=5;
             			}
         			}
         			
@@ -189,6 +192,7 @@ public class Menu {
         				StdDraw.filledCircle(686.4,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
         					case6=true; //6 joueurs
+        					NombreJoueur=6;
             			}
         			}
 					
@@ -208,19 +212,19 @@ public class Menu {
     		
     		else if (cptm>2) { //tous les noms de joueurs avec 2 joueurs
     			if (case2==true) {
-    				NomJoueur(true,2);
+    				Etat=NomJoueur(true,2);
     			}
     			else if (case3==true) {
-    				NomJoueur(true,3);
+    				Etat=NomJoueur(true,3);
     			}
     			else if (case4==true) {
-    				NomJoueur(true,4);
+    				Etat=NomJoueur(true,4);
     			}
     			else if (case5==true) {
-    				NomJoueur(true,5);
+    				Etat=NomJoueur(true,5);
     			}
     			else if (case6==true) {
-    				NomJoueur(true,6);
+    				Etat=NomJoueur(true,6);
     			}
     		}
     	}
@@ -298,12 +302,12 @@ public class Menu {
     		}
     	}
     }
-    public boolean NomJoueur(boolean Etat, int p) {
+    public boolean NomJoueur(boolean EtatNJ, int p) { //p=nombre de joueur en tout ; i=page du joueur actuel
 		int i=1;
     	while (i<p+1) {
+    		StdDraw.pause(300);
     		double Xm=StdDraw.mouseX();
     		double Ym=StdDraw.mouseY();
-    		StdDraw.text(800,495,"Joueur" + i );
 			if (704<Xm && Xm<796.8 && 261< Ym && Ym <324) {
 				Image(i,2);
 				if (StdDraw.isMousePressed()) {
@@ -314,7 +318,8 @@ public class Menu {
 				Image(i,1);
 			}
     	}
-    	return Etat=false;
+    	EtatNJ=false;
+    	return EtatNJ;
     }
 	
 
@@ -340,6 +345,14 @@ public class Menu {
 
 	public void setLongueur(int longueur) {
 		this.longueur = longueur;
+	}
+
+	public static int getNombreJoueur() {
+		return NombreJoueur;
+	}
+
+	public void setNombreJoueur(int nombreJoueur) {
+		NombreJoueur = nombreJoueur;
 	}
 
 }
