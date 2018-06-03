@@ -7,9 +7,18 @@ public class Cavalier extends Unite {
 	protected static int prioriteAtt=1; 
 	protected static int prioriteDef=3; 
 	protected static int mouvement=3; 
+	protected static int ID=1000;
 	
-	public Cavalier(int puissanceMax, int puissanceMin, int cout, int prioriteAtt, int prioriteDef, int mouvement) {
-		super(puissanceMax, puissanceMin, cout, prioriteAtt, prioriteDef, mouvement);
+	public static int getID() {
+		return ID;
+	}
+
+	public static void setID(int iD) {
+		ID = iD;
+	}
+
+	public Cavalier() {
+		super(7, 2, 3, 1, 3, 3, ID);
 		
 	}
 

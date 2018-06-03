@@ -7,9 +7,18 @@ public class Canon extends Unite {
 	protected static int prioriteAtt=3; 
 	protected static int prioriteDef=2; 
 	protected static int mouvement=1; 
+	public static int ID=10000;
 	
-	public Canon(int puissanceMax, int puissanceMin, int cout, int prioriteAtt, int prioriteDef, int mouvement) {
-		super(puissanceMax, puissanceMin, cout, prioriteAtt, prioriteDef, mouvement);
+	public static int getID() {
+		return ID;
+	}
+
+	public static void setID(int iD) {
+		ID = iD;
+	}
+
+	public Canon() {
+		super(9, 4, 7, 3, 2, 1, ID);
 		
 	}
 
