@@ -6,7 +6,7 @@ public class Menu {
 	Menu suivant;
 	int largeur;
     int longueur;
-    static int NombreJoueur;
+    static int nombreJoueur;
     
     public Menu(int largeur, int longueur) {
 		this.largeur = largeur;
@@ -128,7 +128,7 @@ public class Menu {
         				StdDraw.filledCircle(252,384.3,13.6);
         				if (StdDraw.isMousePressed() ) {
         					case2=true; //2 joueurs
-        					NombreJoueur=2;
+        					nombreJoueur=2;
             			}
         			}
         			
@@ -144,7 +144,7 @@ public class Menu {
         				StdDraw.filledCircle(361.6,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
         					case3=true; //3 joueurs
-        					NombreJoueur=3;
+        					nombreJoueur=3;
             			}
         			}
 					
@@ -160,7 +160,7 @@ public class Menu {
         				StdDraw.filledCircle(472,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
         					case4=true; //4 joueurs
-        					NombreJoueur=4;
+        					nombreJoueur=4;
             			}
         			}
         			
@@ -176,7 +176,7 @@ public class Menu {
         				StdDraw.filledCircle(572.8,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
         					case5=true; //5 joueurs
-        					NombreJoueur=5;
+        					nombreJoueur=5;
             			}
         			}
         			
@@ -192,7 +192,7 @@ public class Menu {
         				StdDraw.filledCircle(686.4,384.3,13.6);
         				if (StdDraw.isMousePressed()) {
         					case6=true; //6 joueurs
-        					NombreJoueur=6;
+        					nombreJoueur=6;
             			}
         			}
 					
@@ -229,7 +229,9 @@ public class Menu {
     		}
     	}
     	if (Etat==false) {
-    		Plateau_du_jeu.AfficherPlateau();
+    		Game G = new Game(nombreJoueur);
+    		G.Afficher_Plateau();
+    		G.gameInit();
     	}
     }
     	
@@ -347,12 +349,12 @@ public class Menu {
 		this.longueur = longueur;
 	}
 
-	public static int getNombreJoueur() {
-		return NombreJoueur;
+	public static int getnombreJoueur() {
+		return nombreJoueur;
 	}
 
-	public void setNombreJoueur(int nombreJoueur) {
-		NombreJoueur = nombreJoueur;
+	public void setnombreJoueur(int nombreJoueur) {
+		nombreJoueur = nombreJoueur;
 	}
 
 }

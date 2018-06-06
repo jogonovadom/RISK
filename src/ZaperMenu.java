@@ -6,7 +6,7 @@ public class ZaperMenu {
 	ZaperMenu suivant;
 	int largeur;
     int longueur;
-    
+    static int nombreJoueur;
     
     public ZaperMenu(int largeur, int longueur) {
 		this.largeur = largeur;
@@ -24,7 +24,9 @@ public class ZaperMenu {
     	StdDraw.setYscale(0,900);
     	Font font = new Font("SansSerif",Font.BOLD,30);
     	StdDraw.setFont(font);
-    	Plateau_du_jeu.AfficherPlateau();
+    	Game G = new Game(2);
+    	G.Afficher_Plateau();
+    	G.gameInit();
     	}
     
 	public ZaperMenu getSuivant() {
@@ -51,4 +53,16 @@ public class ZaperMenu {
 		this.longueur = longueur;
 	}
 
+
+
+	public static int getnombreJoueur() {
+		return nombreJoueur;
+	}
+
+
+
+	public static void setnombreJoueur(int nombreJoueur) {
+		nombreJoueur = nombreJoueur;
+	}
+	
 }
