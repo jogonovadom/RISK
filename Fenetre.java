@@ -95,9 +95,8 @@ public class Fenetre extends JFrame {
 
   public ArrayList<Unite> choixDef() {
 	  
-	  //ArrayList<Unite> UniteDef = new ArrayList<Unite>();
-	  ArrayList<Unite> UniteDef = null;
-	 // UniteDef.add(new Cavalier());
+	  ArrayList<Unite> UniteDef = new ArrayList<Unite>();
+	  UniteDef.add(new Cavalier());
 	return UniteDef;
   }
   public void setArmees(ArrayList<Armee> armees) {
