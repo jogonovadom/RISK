@@ -88,9 +88,6 @@ public class Fenetre extends JFrame {
     comboSoldat.addItemListener(new ItemState());
     comboSoldat.addActionListener(new ItemAction());
     valider.addActionListener(new ItemAction());
-    
-    
-    
   }
 
   public ArrayList<Unite> choixDef() {
@@ -127,6 +124,7 @@ public class Fenetre extends JFrame {
 	  }
 	  return true;
 	    }
+  
   public ArrayList<Unite> choixAtt() {
 	  
 	  int nombreFinalCavalier=(int) comboCavalier.getSelectedItem();
@@ -159,8 +157,7 @@ public class Fenetre extends JFrame {
   
   class ItemState implements ItemListener{
 	    public void itemStateChanged(ItemEvent e) {
-	    //  System.out.println("événement déclenché sur : " + e.getItem());
-	      
+	    	
 	    }              
 	  }
   
@@ -182,9 +179,6 @@ public class Fenetre extends JFrame {
 	    		 valider.setEnabled(false);
 	    	 }
 	      }
-	      
-	      
-	    	  
 	      }
 	      
 	    }   
