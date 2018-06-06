@@ -3,22 +3,15 @@ public class Soldat extends Unite {
 	
 	public static int puissanceMax=6;
 	public static int puissanceMin=1;
+	public static int puissance;
 	public static int cout=1;
 	public static int prioriteAtt=2; 
 	public static int prioriteDef=1; 
 	public static int mouvement=2; 
-	public static int ID=100;
 	
-	public static int getID() {
-		return ID;
-	}
-
-	public static void setID(int iD) {
-		ID = iD;
-	}
-
+	
 	public Soldat() {
-		super(6, 1, 1, 2, 1, 2, ID);
+		super(6, 1,puissance, 1, 2, 1, 2);
 		
 	}
 
@@ -46,7 +39,7 @@ public class Soldat extends Unite {
 		Soldat.cout = cout;
 	}
 
-	public static int getPrioriteAtt() {
+	public int getPrioriteAtt() {
 		return prioriteAtt;
 	}
 
@@ -62,7 +55,7 @@ public class Soldat extends Unite {
 		Soldat.prioriteDef = prioriteDef;
 	}
 
-	public static int getMouvement() {
+	public  int getMouvement() {
 		return mouvement;
 	}
 

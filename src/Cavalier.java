@@ -3,22 +3,16 @@ public class Cavalier extends Unite {
 	
 	protected static int puissanceMax=7;
 	protected static int puissanceMin=2;
+	protected static  int puissance;
 	protected static int cout=3;
 	protected static int prioriteAtt=1; 
 	protected static int prioriteDef=3; 
 	protected static int mouvement=3; 
-	protected static int ID=1000;
 	
-	public static int getID() {
-		return ID;
-	}
-
-	public static void setID(int iD) {
-		ID = iD;
-	}
+	
 
 	public Cavalier() {
-		super(7, 2, 3, 1, 3, 3, ID);
+		super(7, 2, puissance, 3, 1, 3, 3);
 		
 	}
 
@@ -46,7 +40,7 @@ public class Cavalier extends Unite {
 		Cavalier.cout = cout;
 	}
 
-	public static int getPrioriteAtt() {
+	public  int getPrioriteAtt() {
 		return prioriteAtt;
 	}
 
@@ -62,7 +56,7 @@ public class Cavalier extends Unite {
 		Cavalier.prioriteDef = prioriteDef;
 	}
 
-	public static int getMouvement() {
+	public  int getMouvement() {
 		return mouvement;
 	}
 

@@ -31,16 +31,15 @@ public class Fenetre extends JFrame {
 	
   private JPanel container = new JPanel();
   private JPanel containerDef = new JPanel();
-  private JComboBox<Integer> combo = new JComboBox<Integer>();
-  private JComboBox<Integer> combo2 = new JComboBox<Integer>();
-  private JComboBox<Integer> combo3 = new JComboBox<Integer>();
-  private JComboBox<Integer> nbrUniteDef = new JComboBox<Integer>();
-  private JLabel label = new JLabel("Cavalier");
-  private JLabel label2 = new JLabel("Canon");
-  private JLabel label3= new JLabel("Soldat");
-  private JLabel nombreUniteDef= new JLabel("Nombre d'unités pour défendre?");
+  private JComboBox<Integer> comboCavalier = new JComboBox<Integer>();
+  private JComboBox<Integer> comboCanon = new JComboBox<Integer>();
+  private JComboBox<Integer> comboSoldat = new JComboBox<Integer>();
+  
+  private JLabel labelCavalier = new JLabel("Cavalier");
+  private JLabel labelCanon = new JLabel("Canon");
+  private JLabel labelSoldat= new JLabel("Soldat");
   private JButton valider = new JButton("Valider");
-  private JButton validerDef = new JButton("Valider");
+  
   
   public Fenetre(){
     this.setTitle("choix att");
@@ -49,87 +48,53 @@ public class Fenetre extends JFrame {
     this.setLocationRelativeTo(null);
     container.setBackground(Color.white);
     container.setLayout(new BorderLayout());
-    combo.setPreferredSize(new Dimension(100, 20));
-    combo2.setPreferredSize(new Dimension(100, 20));
-    combo3.setPreferredSize(new Dimension(100, 20));
-    combo.setLocation(0, 500);
-    combo2.setLocation(250, 400);
-    combo3.setLocation(500, 400);
-   // bouton.setSize(300,150);
-    //bouton.setLayout(new BorderLayout());
+    comboCavalier.setPreferredSize(new Dimension(100, 20));
+    comboCanon.setPreferredSize(new Dimension(100, 20));
+    comboSoldat.setPreferredSize(new Dimension(100, 20));
+    comboCavalier.setLocation(0, 500);
+    comboCanon.setLocation(250, 400);
+    comboSoldat.setLocation(500, 400);
+   
     
     JPanel Att = new JPanel();
     
-    Att.add(label);
-    Att.add(combo);
-    Att.add(label2);
-    Att.add(combo2);
-    Att.add(label3);
-    Att.add(combo3);
+    Att.add(labelCavalier);
+    Att.add(comboCavalier);
+    Att.add(labelCanon);
+    Att.add(comboCanon);
+    Att.add(labelSoldat);
+    Att.add(comboSoldat);
     Att.add(valider, BorderLayout.SOUTH);
     container.add(Att, BorderLayout.SOUTH);
     container.add(new Panneau());
     this.setContentPane(container);
     this.setVisible(true);
-    combo.addItem(0);
-    combo.addItem(1);
-    combo.addItem(2);
-    combo.addItem(3);
-    combo.addItemListener(new ItemState());
-    combo.addActionListener(new ItemAction());
-    combo2.addItem(0);
-    combo2.addItem(1);
-    combo2.addItem(2);
-    combo2.addItem(3);
-    combo2.addItemListener(new ItemState());
-    combo2.addActionListener(new ItemAction());
-    combo3.addItem(0);
-    combo3.addItem(1);
-    combo3.addItem(2);
-    combo3.addItem(3);
-    combo3.addItemListener(new ItemState());
-    combo3.addActionListener(new ItemAction());
+    comboCavalier.addItem(0);
+    comboCavalier.addItem(1);
+    comboCavalier.addItem(2);
+    comboCavalier.addItem(3);
+    comboCavalier.addItemListener(new ItemState());
+    comboCavalier.addActionListener(new ItemAction());
+    comboCanon.addItem(0);
+    comboCanon.addItem(1);
+    comboCanon.addItem(2);
+    comboCanon.addItem(3);
+    comboCanon.addItemListener(new ItemState());
+    comboCanon.addActionListener(new ItemAction());
+    comboSoldat.addItem(0);
+    comboSoldat.addItem(1);
+    comboSoldat.addItem(2);
+    comboSoldat.addItem(3);
+    comboSoldat.addItemListener(new ItemState());
+    comboSoldat.addActionListener(new ItemAction());
     valider.addActionListener(new ItemAction());
-    
-    
-    
   }
-  public void FenetreDef() {
-	    this.setTitle("choix def");
-	    this.setSize(700, 500);
-	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    this.setLocationRelativeTo(null);
-	    containerDef.setBackground(Color.white);
-	    containerDef.setLayout(new BorderLayout());
-	    JPanel Def = new JPanel();
-	    Def.add(nombreUniteDef);
-	    Def.add(nbrUniteDef);
-	    Def.add(validerDef, BorderLayout.SOUTH);
-	    containerDef.add(Def, BorderLayout.SOUTH);
-	    containerDef.add(new Panneau());
-	    this.setContentPane(containerDef);
-	    this.setVisible(true);
-	    nbrUniteDef.addItem(1);
-	    nbrUniteDef.addItem(2);
-	    nbrUniteDef.addItemListener(new ItemState());
-	    nbrUniteDef.addActionListener(new ItemAction());
-	    validerDef.addActionListener(new ItemAction());
-        
-	    
-	   
-	    
-  }
-  
+
   public ArrayList<Unite> choixDef() {
-	  int nombreDef=(int) nbrUniteDef.getSelectedItem();
+	  
 	  ArrayList<Unite> UniteDef = new ArrayList<Unite>();
-	  if (nombreDef<=2) {
-	  for (int i=0;i<nombreDef;i++) {
-		  UniteDef.add(new Cavalier());
-	  }
-	  System.out.println(UniteDef);
-	  }
-	  return UniteDef;
+	  UniteDef.add(new Cavalier());
+	return UniteDef;
   }
   public void setArmees(ArrayList<Armee> armees) {
 	  this.armees = armees;
@@ -138,24 +103,49 @@ public class Fenetre extends JFrame {
   public void addArmee(Armee armee) {
 	  this.armees.add(armee);
   }
+  public boolean verifAtt() {
+	  int nombreFinalCavalier=(int) comboCavalier.getSelectedItem();
+	  int nombreFinalCanon=(int) comboCanon.getSelectedItem();
+	  int nombreFinalSoldat=(int) comboSoldat.getSelectedItem();
+	  
+	  if (nombreFinalCavalier+nombreFinalCanon+nombreFinalSoldat>3) {
+		    JOptionPane.showMessageDialog(valider,"Vous pouvez choisir au maximum 3 unités","Erreur", JOptionPane.ERROR_MESSAGE);
+		    valider.setEnabled(false);
+		    return false;
+		  }
+	  
+	  else if (nombreFinalCavalier+nombreFinalCanon+nombreFinalSoldat==0) {
+			  JOptionPane.showMessageDialog(valider,"Choisissez au moins une troupe","Erreur", JOptionPane.ERROR_MESSAGE);
+			  valider.setEnabled(false);
+			  return false;
+			  }
+	  else {
+		  valider.setEnabled(true);
+	  }
+	  return true;
+	    }
+  
   public ArrayList<Unite> choixAtt() {
 	  
-	  int nombre=(int) combo.getSelectedItem();
-	  int nombre2=(int) combo2.getSelectedItem();
-	  int nombre3=(int) combo3.getSelectedItem();
-	  if (nombre+nombre2+nombre3>3) {
-	  JOptionPane.showMessageDialog(valider,"Vous pouvez choisir au maximum 3 unités","Erreur", JOptionPane.ERROR_MESSAGE);
-	  }
+	  int nombreFinalCavalier=(int) comboCavalier.getSelectedItem();
+	  int nombreFinalCanon=(int) comboCanon.getSelectedItem();
+	  int nombreFinalSoldat=(int) comboSoldat.getSelectedItem();
+	  
+	  int nombreCavalier=(int) comboCavalier.getItemAt(0);
+	  int nombreCanon=(int) comboCanon.getItemAt(0);
+	  int nombreSoldat=(int) comboSoldat.getItemAt(0);
+	  
+	  
 	  ArrayList<Unite> Unite = new ArrayList<Unite>();
-	  if (nombre+nombre2+nombre3<=3) {
-		  for (int i=0;i<nombre;i++) {
+	  if (nombreFinalCavalier+nombreFinalCanon+nombreFinalSoldat<=3 && nombreFinalCavalier+nombreFinalCanon+nombreFinalSoldat>0) {
+		  for (int i=0;i<nombreFinalCavalier;i++) {
 			  Unite.add(new Cavalier());
 		  }
-		  for (int i=0;i<nombre2;i++) {
+		  for (int i=0;i<nombreFinalCanon;i++) {
 			  Unite.add(new Canon()); 
 			   
 		  }
-		  for (int i=0;i<nombre3;i++) {
+		  for (int i=0;i<nombreFinalSoldat;i++) {
 			  Unite.add(new Soldat()); 
 			  
 		  }
@@ -167,37 +157,28 @@ public class Fenetre extends JFrame {
   
   class ItemState implements ItemListener{
 	    public void itemStateChanged(ItemEvent e) {
-	      System.out.println("événement déclenché sur : " + e.getItem());
-	      
+	    	
 	    }              
 	  }
   
    class ItemAction implements ActionListener{
 	    public void actionPerformed(ActionEvent e) {
 	    	boolean defense =false;
-	      if (e.getSource()==combo || e.getSource()==combo2 || e.getSource()==combo3 ) {
+	      if (e.getSource()==comboCavalier || e.getSource()==comboCanon || e.getSource()==comboSoldat) {
 	      
 	        choixAtt();
 	      }
 	      if (e.getSource()==valider) {
-	    	  setVisible(false);
-	    	  FenetreDef();
 	    	  
+	    	  if (verifAtt()==true) {
+	    	    armee.attaquer(choixAtt(),choixDef());
+	    	    setVisible(false);
 	    	  
-	      }
-	      
-	      if (e.getSource()==nbrUniteDef) {
-    		  choixDef();
-    	  }
-	      if (e.getSource()==validerDef) {
-	    	  
-	             armee.attaquer(choixAtt(),choixDef());
-	             
-		    	 defense = true;
-		      }
-	    	  if (defense == true) {
-	    		  setVisible(false);
 	    	  }
+	    	  else {
+	    		 valider.setEnabled(false);
+	    	 }
+	      }
 	      }
 	      
 	    }   

@@ -3,24 +3,21 @@ public class Canon extends Unite {
 	
 	protected static int puissanceMax=9;
 	protected static int puissanceMin=4;
+	protected static  int puissance;
 	protected static int cout=7;
 	protected static int prioriteAtt=3; 
 	protected static int prioriteDef=2; 
 	protected static int mouvement=1; 
-	public static int ID=10000;
 	
-	public static int getID() {
-		return ID;
-	}
-
-	public static void setID(int iD) {
-		ID = iD;
-	}
-
+	
 	public Canon() {
-		super(9, 4, 7, 3, 2, 1, ID);
+		super(9, 4,puissance, 7, 3, 2, 1);
 		
 	}
+	
+	
+
+	
 
 	public static int getPuissanceMax() {
 		return puissanceMax;
@@ -46,7 +43,7 @@ public class Canon extends Unite {
 		Canon.cout = cout;
 	}
 
-	public static int getPrioriteAtt() {
+	public  int getPrioriteAtt() {
 		return prioriteAtt;
 	}
 
@@ -62,7 +59,7 @@ public class Canon extends Unite {
 		Canon.prioriteDef = prioriteDef;
 	}
 
-	public static int getMouvement() {
+	public int getMouvement() {
 		return mouvement;
 	}
 
