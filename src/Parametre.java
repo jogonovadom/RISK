@@ -1,25 +1,58 @@
-public class Parametre {
+import edu.princeton.cs.introcs.StdDraw;
+import java.awt.Graphics; 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-	//attributs de la classe
-	Parametre suivant;
-	private double Y;
-	private double X;
-	
-	public Parametre( double X, double Y){
-		this.X=X;
-		this.Y=Y;
-	}	
-	
-	public double getY() {
-		return Y;
-	}
-	public void setY(double y) {
-		Y = y;
-	}
-	public double getX() {
-		return X;
-	}
-	public void setX(double x) {
-		X = x;
-	}
+
+public class Parametre extends JFrame { //la fenêtre dépend de JFrame #heritage
+
+    private JPanel pan = new JPanel();
+    public  JButton bouton1 = new JButton("Quitter le jeu");
+    public JButton bouton2 = new JButton ("Aide?");
+
+
+
+    public Parametre(){
+        this.setTitle("Paramètres");
+        this.setSize(300, 150);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        //Ajout des boutons à notre content pane (=> là où sont disposés les composants)
+        pan.add(bouton1);
+        pan.add(bouton2);
+        //bouton.addActionListener(this);
+        this.setContentPane(pan);
+        this.setVisible(true);
+        //bouton.addActionListener(this);
+        //bouton2.addActionListener(this);
+
+        bouton1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        bouton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(true);
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        try{
+                            Manuel_Utilisateur window = new Manuel_Utilisateur();
+                            window.setVisible(true);
+                        } catch(Exception e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+            }
+        });
+
+    }
 }
