@@ -185,7 +185,137 @@ public class Territory {
 			return AOrientale;
 		}
 	}
-	
+	public static int getIDFromNom(String Nom) {
+		if ((Nom=="Alaska ")||(Nom==" Alaska ")||(Nom==" Alaska")) {
+			return 1;
+		}
+		else if ((Nom=="Territoire du Nord Ouest") || (Nom=="Territoire du nord ouest")) {
+			return 2;
+		}
+		else if (Nom=="Alberta") {
+			return 3;
+		}
+		else if (Nom=="Ontario") {
+			return 4;
+		}
+		else if ((Nom=="Etat de l'Ouest") || (Nom=="Etat de l'ouest")) {
+			return 5;
+		}
+		else if ((Nom=="Afrique centrale")||(Nom=="Afrique Centrale")) {
+			return 6;
+		}
+		else if ((Nom=="Etat de l'Est") || (Nom=="Etat de l'est")) {
+			return 7;
+		}
+		else if (Nom=="Quebec") {
+			return 8;
+		}
+		else if (Nom=="Groenland") {
+			return 9;
+		}
+		else if (Nom=="Venezuela") {
+			return 10;
+		}
+		else if (Nom=="Bresil") {
+			return 11;
+		}
+		else if (Nom=="Perou") {
+			return 12;
+		}
+		else if (Nom=="Argentine") {
+			return 13;
+		}
+		else if (Nom=="Islande") {
+			return 14;
+		}
+		else if (Nom=="Grande-Bretagne") {
+			return 15;
+		}
+		else if ((Nom=="Europe Occidentale")||(Nom=="Europe occidentale")) {
+			return 16;
+		}
+		else if ((Nom=="Europe du Nord")||(Nom=="Europe du nord")) {
+			return 17;
+		}
+		else if (Nom=="Scandinavie") {
+			return 18;
+		}
+		else if ((Nom=="Europe du Sud")||(Nom=="Europe du sud")) {
+			return 19;
+		}
+		else if (Nom=="Ukraine") {
+			return 20;
+		}
+		else if ((Nom=="Afrique du Nord")||(Nom=="Afrique du nord")) {
+			return 21;
+		}
+		else if (Nom=="Egypte") {
+			return 22;
+		}
+		else if ((Nom=="Afrique de l'Est")||(Nom=="Afrique de l'est")) {
+			return 23;
+		}
+		else if (Nom=="Congo") {
+			return 24;
+		}
+		else if ((Nom=="Afrique du Sud")||(Nom=="Afrique du sud")) {
+			return 25;
+		}
+		else if (Nom=="Madagascar") {
+			return 26;
+		}
+		else if (Nom=="Moyen-Orient") {
+			return 27;
+		}
+		else if (Nom=="Inde") {
+			return 28;
+		}
+		else if (Nom=="Afghanistan") {
+			return 29;
+		}
+		else if (Nom=="Oural") {
+			return 30;
+		}
+		else if (Nom=="Sibérie") {
+			return 31;
+		}
+		else if (Nom=="Yakoutie") {
+			return 32;
+		}
+		else if (Nom=="Tchita") {
+			return 33;
+		}
+		else if (Nom=="Mongolie") {
+			return 34;
+		}
+		else if (Nom=="Chine") {
+			return 35;
+		}
+		else if (Nom=="Siam") {
+			return 36;
+		}
+		else if (Nom=="Kamtchatka") {
+			return 37;
+		}
+		else if (Nom=="Japon") {
+			return 38;
+		}
+		else if (Nom=="Indonesie") {
+			return 39;
+		}
+		else if (Nom=="Nouvelle-Guinee") {
+			return 40;
+		}
+		else if ((Nom=="Australie Occidentale")||(Nom=="Australie occidentale")) {
+			return 41;
+		}
+		else if ((Nom=="Australie Orientale")||(Nom=="Australie orientale")) {
+			return 42;
+		}
+		else {
+			return 1;
+		}
+	}
 	public String getNom() {
 		return Nom;
 	}

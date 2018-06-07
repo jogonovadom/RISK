@@ -1,11 +1,12 @@
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
-import edu.princeton.cs.introcs.StdDraw;
+import java.util.Scanner;
 
+import edu.princeton.cs.introcs.StdDraw;
 public class Game {
 	Game suivant;
-	int NJ = Menu.getnombreJoueur();
+	static int NJ =2;
 	public Game(int NJ) {
 		this.NJ=NJ;
 	}
@@ -35,11 +36,12 @@ public class Game {
 			ArrayListTerritoire.add(new ArrayList<Integer>());
 		}
 		repartitionTerritoires(ArrayListTerritoire, joueur);
-		repartitionTroupes(joueur);
-		System.out.println(ArrayListTerritoire.get(0));
-		System.out.println(joueur.get(0).getNombreUnitesControlees());
-		System.out.println(Territory.getTerritoryFromID(1).getNom());
 		placerLesPremieresUnites();
+		ArrayList<Integer> PremieresUnitesAPlacer=repartitionTroupes(ArrayListTerritoire, joueur);
+		for (int i=0;i<=NJ-1;i++) {
+			placerDesUnites(PremieresUnitesAPlacer, i, joueur);
+		}
+		
 	}
 	public void repartitionTerritoires(ArrayList<ArrayList<Integer>> ArrayListTerritoire, ArrayList<Joueur> joueur) {
 		//répartition des territoires
@@ -61,47 +63,85 @@ public class Game {
 			joueur.get(i).setTerritoiresControles(ArrayListTerritoire.get(i));
 		}
 	}
-	public void repartitionTroupes(ArrayList<Joueur> joueur) {
-		if (NJ==2) {
-			joueur.get(0).setNombreUnitesControlees(19);
-			joueur.get(1).setNombreUnitesControlees(19);
+	public static ArrayList<Integer> repartitionTroupes(ArrayList<ArrayList<Integer>> ArrayListTerritoire, ArrayList<Joueur> joueur) {
+		ArrayList<Integer> UnitesControlees = new ArrayList<Integer>();
+		for (int i=0;i<=NJ-1;i++){
+			joueur.get(i).setNombreUnitesControlees(40-5*(NJ-2) - ArrayListTerritoire.get(i).size());
+			UnitesControlees.add(joueur.get(i).getNombreUnitesControlees());
 		}
-		if (NJ==3) {
-			joueur.get(0).setNombreUnitesControlees(21);
-			joueur.get(1).setNombreUnitesControlees(21);
-			joueur.get(2).setNombreUnitesControlees(21);
-		}
-		if (NJ==4) {
-			joueur.get(0).setNombreUnitesControlees(30);
-			joueur.get(1).setNombreUnitesControlees(30);
-			joueur.get(2).setNombreUnitesControlees(30);
-			joueur.get(3).setNombreUnitesControlees(30);
-		}
-		if (NJ==5) {
-			joueur.get(0).setNombreUnitesControlees(25);
-			joueur.get(1).setNombreUnitesControlees(25);
-			joueur.get(2).setNombreUnitesControlees(25);
-			joueur.get(3).setNombreUnitesControlees(25);
-			joueur.get(4).setNombreUnitesControlees(25);
-		}
-		if (NJ==6) {
-			joueur.get(0).setNombreUnitesControlees(13);
-			joueur.get(2).setNombreUnitesControlees(13);
-			joueur.get(3).setNombreUnitesControlees(13);
-			joueur.get(4).setNombreUnitesControlees(13);
-			joueur.get(5).setNombreUnitesControlees(13);
-			joueur.get(6).setNombreUnitesControlees(13);
-		}
+		return UnitesControlees;
 	}
 	public void placerLesPremieresUnites() {
 		for (int i=1; i<43; i++) {
 			ArrayList<Unite> armeeTemp =  new ArrayList<Unite>();
 			armeeTemp.add(new Soldat());
 			Territory.getTerritoryFromID(i).setTroupes(armeeTemp);
-			System.out.println(Territory.getTerritoryFromID(i).getTroupes());
+		}
+	}
+	public void placerDesUnites(ArrayList<Integer> unitesAPlacer, int quelJoueur, ArrayList<Joueur> joueur) {
+		//cette fonction permet de placer des troupes en donnant le numéro du joueur
+		int NombreUniteRestantes = joueur.get(quelJoueur).getNombreUnitesControlees();
+		ArrayList<String> NomsTerritoiresControlees = new ArrayList<String>() ;
+		int LongueurListTerritoiresControlees = joueur.get(quelJoueur).getTerritoiresControles().size();
+		for (int i=0; i<LongueurListTerritoiresControlees;i++) {
+			int Territoirei = joueur.get(quelJoueur).getTerritoiresControles().get(i);
+			System.out.println("territoire contrôlé n° " + joueur.get(quelJoueur).getTerritoiresControles().get(i) + ": " + Territory.getTerritoryFromID(Territoirei).getNom());
+		}
+		while (NombreUniteRestantes !=0) {
+			System.out.println("Le joueur " + (quelJoueur+1) + " doit placer ses " + NombreUniteRestantes +" unités restantes");
+			System.out.println("Sur quel territoire voulez vous placer des troupes ?");
+			System.out.println("entrez le numéro du territoire");
+			Scanner scTerritoire = new Scanner(System.in);
+			Territory TerritoireChoisi;
+			int IDTerritoireChoisi = scTerritoire.nextInt();
+			boolean PossederTerritoire=false;
+			for (int i=0;i<joueur.get(quelJoueur).getTerritoiresControles().size();i++) {
+				if (IDTerritoireChoisi==joueur.get(quelJoueur).getTerritoiresControles().get(i)) {
+					PossederTerritoire=true;
+				}
+			}
+			if (PossederTerritoire==true) {
+				TerritoireChoisi=Territory.getTerritoryFromID(IDTerritoireChoisi);
+				int NombreSoldatChoisi;
+				Scanner scNombreSoldat = new Scanner(System.in);
+				System.out.println("Combien de Soldat voulez vous?");
+				NombreSoldatChoisi = scTerritoire.nextInt(); 
+				int NombreCavalierChoisi;
+				Scanner scNombreCavalier = new Scanner(System.in);
+				System.out.println("Combien de Cavalier voulez vous?");
+				NombreCavalierChoisi = scTerritoire.nextInt();
+				int NombreCanonChoisi;
+				Scanner scNombreCanon = new Scanner(System.in);
+				System.out.println("Combien de Canon voulez vous?");
+				NombreCanonChoisi = scTerritoire.nextInt();
+				for (int i=1; i<=NombreSoldatChoisi;i++) {
+					TerritoireChoisi.addTroupes(new Soldat());
+					NombreUniteRestantes=NombreUniteRestantes-1;
+				}
+				for (int i=1; i<=NombreCavalierChoisi;i++) {
+					if (NombreUniteRestantes>=3) {
+						TerritoireChoisi.addTroupes(new Cavalier());
+						NombreUniteRestantes=NombreUniteRestantes-3;
+					}
+					else {
+						System.out.println("Vous n'avez pas assez de place pour un cavalier, il vous reste" + NombreUniteRestantes + "troupes");
+					}
+				}
+				for (int i=1; i<=NombreCanonChoisi;i++) {
+					if (NombreUniteRestantes>=7) {
+						TerritoireChoisi.addTroupes(new Canon());
+						NombreUniteRestantes=NombreUniteRestantes-7;
+					}
+					else {
+						System.out.println("Vous n'avez pas assez de place pour un canon, il vous reste" + NombreUniteRestantes + "troupes");
+					}
+				}
+			}
+			else {
+				System.out.println("ce territoire ne vous appartient pas");
+			}
 		}
 	}
 	public void Afficher_Les_Unites() {
-		
 	}
 }
