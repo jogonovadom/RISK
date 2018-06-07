@@ -17,8 +17,8 @@ public class Parametre extends JFrame { //la fenêtre dépend de JFrame #heritag
 
 
     public Parametre(){
-        this.setTitle("Paramètres");
-        this.setSize(300, 150);
+        this.setTitle("Parametres");
+        this.setSize(600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         //Ajout des boutons à notre content pane (=> là où sont disposés les composants)
