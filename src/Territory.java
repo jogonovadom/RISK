@@ -7,55 +7,59 @@ public class Territory {
 	public int IDterritory;
 	public String Nom;
 	public ArrayList<Unite> Troupes;
-	public Territory(String Nom, int IDterritory, double X, double Y, ArrayList<Unite> Troupes){
+	public double Xcavalier;
+	public double Ycavalier;
+	public Territory(String Nom, int IDterritory, double X, double Y, double Xcavalier, double Ycavalier, ArrayList<Unite> Troupes){
 		this.Nom=Nom;
 		this.IDterritory=IDterritory;
 		this.X=X;
 		this.Y=Y;
 		this.Troupes=Troupes;
+		this.Xcavalier=Xcavalier;
+		this.Ycavalier=Ycavalier;
 	}
-	static Territory Alaska = new Territory("Alaska",1,125.5,711.5, null);
-	static Territory TNO = new Territory("Territoire du Nord Ouest",2,386,731, null);
-	static Territory Alberta = new Territory("Alberta",3,221,666, null);
-	static Territory Ontario = new Territory("Ontario",4,382,638, null);
-	static Territory EOuest = new Territory("Etat de lOuest",5,286,630, null);
-	static Territory AC = new Territory("Amerique centrale",6,234,538, null);
-	static Territory EE = new Territory("Etat de lEst",7,368,598, null);
-	static Territory Quebec = new Territory("Quebec",8,451,698, null);
-	static Territory Groenland = new Territory("Groenland",9,515,710, null);
-	static Territory Venezuela = new Territory("Venezuela",10,363,412, null);
-	static Territory Bresil = new Territory("Bresil",11,539,351, null);
-	static Territory Perou = new Territory("Perou",12,355,364, null);
-	static Territory Argentine = new Territory("Argentine",13,435,137, null);
-	static Territory Islande = new Territory("Islande",14,698,764, null);
-	static Territory GB = new Territory("Grande-Bretagne",15,612,637, null);
-	static Territory EOccidentale = new Territory("Europe occidentale",16,664,569, null);
-	static Territory EN = new Territory("Europe Nord",17,768,662, null);
-	static Territory Scandinavie = new Territory("Scandinavie",18,781,740, null);
-	static Territory ES = new Territory("EU Sud",19,822,578, null);
-	static Territory Ukraine = new Territory("Ukraine",20,914,697, null);
-	static Territory AN = new Territory("Afrique du Nord",21,698,450, null);
-	static Territory Egypte = new Territory("Egypte",22,816,484, null);
-	static Territory AE = new Territory("Afrique de l�Est",23,980,361, null);
-	static Territory Congo = new Territory("Congo",24,812,317, null);
-	static Territory AS = new Territory("Afrique du Sud",25,856,149, null);
-	static Territory Madagascar = new Territory("Madagascar",26,1015,179, null);
-	static Territory MO = new Territory("Moyen-Orient",27,1017,451, null);
-	static Territory Inde = new Territory("Inde",28,1138,450, null);
-	static Territory Afghanistan = new Territory("Afghanistan",29,1019,588, null);
-	static Territory Oural = new Territory("Oural",30,1012,715, null);
-	static Territory Siberie = new Territory("Siberie",31,1080,754, null);
-	static Territory Yakoutie = new Territory("Yakoutie",32,1183,742, null);
-	static Territory Tchita = new Territory("Tchita",33,1176,680, null);
-	static Territory Mongolie = new Territory("Mongolie",34,1323,620, null);
-	static Territory Chine = new Territory("Chine",35,1310,534, null);
-	static Territory Siam = new Territory("Siam",36,1252,443, null);
-	static Territory Kamtchatka = new Territory("Kamtchatka",37,1410,687, null);
-	static Territory Japon = new Territory("Japon",38,1427,575, null);
-	static Territory Indonesie = new Territory("Indonesie",39,1366,421, null);
-	static Territory NG = new Territory("Nouvelle-Guinee",40,1483,384, null);
-	static Territory AOccidentale = new Territory("Australie occidentale",41,1291,235, null);
-	static Territory AOrientale = new Territory("Australie Orientale",42,1406,211, null);
+	static Territory Alaska = new Territory("Alaska",1,125.5,711.5,182,739, null);
+	static Territory TNO = new Territory("Territoire du Nord Ouest",2,386,731,285,740, null);
+	static Territory Alberta = new Territory("Alberta",3,221,666,259,694, null);
+	static Territory Ontario = new Territory("Ontario",4,382,638,356,688, null);
+	static Territory EOuest = new Territory("Etat de lOuest",5,286,630,232,630, null);
+	static Territory AC = new Territory("Amerique centrale",6,234,538,270,481, null);
+	static Territory EE = new Territory("Etat de lEst",7,368,598,310,562, null);
+	static Territory Quebec = new Territory("Quebec",8,451,698,441,655, null);
+	static Territory Groenland = new Territory("Groenland",9,515,710,546,750, null);
+	static Territory Venezuela = new Territory("Venezuela",10,363,412,420,417, null);
+	static Territory Bresil = new Territory("Bresil",11,539,351,457,358, null);
+	static Territory Perou = new Territory("Perou",12,355,364,417,293, null);
+	static Territory Argentine = new Territory("Argentine",13,435,137,430,227, null);
+	static Territory Islande = new Territory("Islande",14,698,764,625,710, null);
+	static Territory GB = new Territory("Grande-Bretagne",15,612,637,711,669, null);
+	static Territory EOccidentale = new Territory("Europe occidentale",16,664,569,717,561, null);
+	static Territory EN = new Territory("Europe Nord",17,768,662,820,641, null);
+	static Territory Scandinavie = new Territory("Scandinavie",18,781,740,820,705, null);
+	static Territory ES = new Territory("EU Sud",19,822,578,820,605, null);
+	static Territory Ukraine = new Territory("Ukraine",20,914,697,920,640, null);
+	static Territory AN = new Territory("Afrique du Nord",21,698,450,750,450, null);
+	static Territory Egypte = new Territory("Egypte",22,816,484,870,496, null);
+	static Territory AE = new Territory("Afrique de l�Est",23,980,361,920,414, null);
+	static Territory Congo = new Territory("Congo",24,812,317,859,339, null);
+	static Territory AS = new Territory("Afrique du Sud",25,856,149,870,225, null);
+	static Territory Madagascar = new Territory("Madagascar",26,1015,179,1042,225, null);
+	static Territory MO = new Territory("Moyen-Orient",27,1017,451,990,489, null);
+	static Territory Inde = new Territory("Inde",28,1138,450,1093,530, null);
+	static Territory Afghanistan = new Territory("Afghanistan",29,1019,588,1046,649, null);
+	static Territory Oural = new Territory("Oural",30,1012,715,1063,687, null);
+	static Territory Siberie = new Territory("Siberie",31,1080,754,1137,714, null);
+	static Territory Yakoutie = new Territory("Yakoutie",32,1183,742,1244,756, null);
+	static Territory Tchita = new Territory("Tchita",33,1176,680,1235,684, null);
+	static Territory Mongolie = new Territory("Mongolie",34,1323,620,1235,634, null);
+	static Territory Chine = new Territory("Chine",35,1310,534,1160,593, null);
+	static Territory Siam = new Territory("Siam",36,1252,443,1252,483, null);
+	static Territory Kamtchatka = new Territory("Kamtchatka",37,1410,687,1389,737, null);
+	static Territory Japon = new Territory("Japon",38,1427,575,1407,615, null);
+	static Territory Indonesie = new Territory("Indonesie",39,1366,421,1308,374, null);
+	static Territory NG = new Territory("Nouvelle-Guinee",40,1483,384,1456,356, null);
+	static Territory AOccidentale = new Territory("Australie occidentale",41,1291,235,1300,273, null);
+	static Territory AOrientale = new Territory("Australie Orientale",42,1406,211,1413,273, null);
 	
 	public static Territory getTerritoryFromID(int i) {
 		if (i==1) {
@@ -186,6 +190,7 @@ public class Territory {
 		}
 	}
 	public static int getIDFromNom(String Nom) {
+		//
 		if ((Nom=="Alaska ")||(Nom==" Alaska ")||(Nom==" Alaska")) {
 			return 1;
 		}
@@ -322,16 +327,16 @@ public class Territory {
 	public void setNom(String nom) {
 		Nom = nom;
 	}
-	public double getY() {
+	public double getYterritory() {
 		return Y;
 	}
-	public void setY(double y) {
+	public void setYterritory(double y) {
 		Y = y;
 	}
-	public double getX() {
+	public double getXterritory() {
 		return X;
 	}
-	public void setX(double x) {
+	public void setXterritory(double x) {
 		X = x;
 	}
 
@@ -351,4 +356,17 @@ public class Territory {
 	public void addTroupes(Unite troupes) {
 		getTroupes().add(troupes);
 	}
+	public double getXcavalier() {
+		return Xcavalier;
+	}
+	public void setXcavalier(double xcavalier) {
+		Xcavalier = xcavalier;
+	}
+	public double getYcavalier() {
+		return Ycavalier;
+	}
+	public void setYcavalier(double ycavalier) {
+		Ycavalier = ycavalier;
+	}
+	
 }

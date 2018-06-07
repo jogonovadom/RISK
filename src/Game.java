@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -38,10 +39,17 @@ public class Game {
 		repartitionTerritoires(ArrayListTerritoire, joueur);
 		placerLesPremieresUnites();
 		ArrayList<Integer> PremieresUnitesAPlacer=repartitionTroupes(ArrayListTerritoire, joueur);
+		afficherLesUnites(informationsUnites());
 		for (int i=0;i<=NJ-1;i++) {
 			placerDesUnites(PremieresUnitesAPlacer, i, joueur);
+			afficherLesUnites(informationsUnites());
 		}
-		
+		int TourJoueur = 0;
+		int i=0;
+		while (!verifierVictoire(joueur)) {
+			deroulementDunTour(i);
+		}
+		deroulementDunTour(2);
 	}
 	public void repartitionTerritoires(ArrayList<ArrayList<Integer>> ArrayListTerritoire, ArrayList<Joueur> joueur) {
 		//répartition des territoires
@@ -142,6 +150,82 @@ public class Game {
 			}
 		}
 	}
-	public void Afficher_Les_Unites() {
+	public ArrayList<int []> informationsUnites() {
+		ArrayList<int []> ArrayListInfoUnite = new ArrayList<int []>();
+		int [] tabSoldat = new int[42];
+		int [] tabCavalier = new int[42];
+		int [] tabCanon = new int[42];
+		int [] textActuelCavalier=new int[42];
+		int [] textActuelSoldat=new int[42];
+		int [] textActuelCanon=new int[42];
+		for (int i = 1;i<=42;i++) {
+			textActuelCavalier[i-1]=tabCavalier[i-1];
+			textActuelSoldat[i-1]=tabSoldat[i-1];
+			textActuelCanon[i-1]=tabCanon[i-1];
+		}
+		for (int i = 1;i<=42;i++) {	
+		int NombreSoldat=0;
+		int NombreCavalier=0;
+		int NombreCanon=0;
+			for (int j = 0; j<Territory.getTerritoryFromID(i).getTroupes().size();j++) {
+				int mouvement = Territory.getTerritoryFromID(i).getTroupes().get(j).getMouvement();
+				if (mouvement==2) {
+					NombreSoldat=NombreSoldat+1;
+				}
+				else if (mouvement==3) {
+					NombreCavalier=NombreCavalier+1;
+				}
+				else if (mouvement==1) {
+					NombreCanon=NombreCanon+1;
+				}
+			}
+			tabSoldat[i-1]=NombreSoldat;
+			tabCavalier[i-1]=NombreCavalier;
+			tabCanon[i-1]=NombreCanon;
+		}
+		ArrayListInfoUnite.add(tabSoldat);
+		ArrayListInfoUnite.add(tabCavalier);
+		ArrayListInfoUnite.add(tabCanon);
+		ArrayListInfoUnite.add(textActuelSoldat);
+		ArrayListInfoUnite.add(textActuelCavalier);
+		ArrayListInfoUnite.add(textActuelCanon);
+		
+		return ArrayListInfoUnite;
+	}
+	public void afficherLesUnites(ArrayList<int []> ArrayListInfoUnite) {
+		Font fontUnites = new Font("SansSerif",Font.BOLD,15);
+		StdDraw.setFont();
+		ArrayListInfoUnite = informationsUnites();
+		int [] tabSoldat = ArrayListInfoUnite.get(0);
+		int [] tabCavalier = ArrayListInfoUnite.get(1);
+		int [] tabCanon = ArrayListInfoUnite.get(2);
+		int [] textActuelSoldat = ArrayListInfoUnite.get(3);
+		int [] textActuelCavalier = ArrayListInfoUnite.get(4);
+		int [] textActuelCanon = ArrayListInfoUnite.get(5);
+		for (int i=1;i<=42;i++) {
+			double Xi;
+			double Yi;
+			Xi=Territory.getTerritoryFromID(i).getXcavalier();
+			Yi=Territory.getTerritoryFromID(i).getYcavalier();
+			StdDraw.setPenColor(StdDraw.WHITE);
+			StdDraw.text(Xi, Yi-3, String.valueOf(textActuelCavalier[i-1])); //afficher le numéro du cavalier
+			StdDraw.text(Xi -26 , Yi-3, String.valueOf(textActuelSoldat[i-1])); //afficher le numéro du soldat
+			StdDraw.text(Xi + 26, Yi-3, String.valueOf(textActuelCanon[i-1])); //afficher le numéro du canon
+			StdDraw.setPenColor(StdDraw.BLACK);
+			StdDraw.text(Xi, Yi-3, String.valueOf(tabCavalier[i-1])); //afficher le numéro du cavalier
+			StdDraw.text(Xi -26 , Yi-3, String.valueOf(tabSoldat[i-1])); //afficher le numéro du soldat
+			StdDraw.text(Xi + 26, Yi-3, String.valueOf(tabCanon[i-1])); //afficher le numéro du canon
+		}
+	}
+	public boolean verifierVictoire(ArrayList<Joueur> joueur) {
+		for (int i=0;i<=NJ-1;i++) {
+			if (joueur.get(i).getTerritoiresControles().size()==42) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public void deroulementDunTour(int i) {
+		
 	}
 }
