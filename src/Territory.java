@@ -9,6 +9,7 @@ public class Territory {
 	public ArrayList<Unite> Troupes;
 	public double Xcavalier;
 	public double Ycavalier;
+	public int [] TerritoiresAdj;
 	public Territory(String Nom, int IDterritory, double X, double Y, double Xcavalier, double Ycavalier, ArrayList<Unite> Troupes, int [] TerritoiresAdj){
 		this.Nom=Nom;
 		this.IDterritory=IDterritory;
@@ -17,6 +18,7 @@ public class Territory {
 		this.Troupes=Troupes;
 		this.Xcavalier=Xcavalier;
 		this.Ycavalier=Ycavalier;
+		this.TerritoiresAdj=TerritoiresAdj;
 	}
 	static int [] adjAlaska = {2,3};
 	static int [] adjTno = {1,2,4,9};
@@ -409,6 +411,12 @@ public class Territory {
 	}
 	public void setYcavalier(double ycavalier) {
 		Ycavalier = ycavalier;
+	}
+	public int[] getTerritoiresAdj() {
+		return TerritoiresAdj;
+	}
+	public void setTerritoiresAdj(int[] territoiresAdj) {
+		TerritoiresAdj = territoiresAdj;
 	}
 	
 }

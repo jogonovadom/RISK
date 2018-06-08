@@ -48,7 +48,7 @@ public class ArmeeConsole {
 		for (int i=0;i<ArmeeAttaquante.size();i++) {
 			
 			System.out.println(ArmeeAttaquante.get(i).getClass().getName());
-			String type =ArmeeAttaquante.get(i).getClass().getName(); //On r�cup�re le type de l'Unite
+			String type =ArmeeAttaquante.get(i).getClass().getName(); //On recupere le type de l'Unite
 			
 			if (type=="Soldat") {
 				int Puissance =Soldat.getPuissanceMin() + (int) ( (Math.random()*(Soldat.getPuissanceMax() - Soldat.getPuissanceMin()+1)));
@@ -129,7 +129,7 @@ public class ArmeeConsole {
 		System.out.println("Attaque : " + Attaquants);
 		Collections.sort(Defenseurs);
 		Collections.reverse(Defenseurs);
-		System.out.println("D�fense : " + Defenseurs);
+		System.out.println("Defense : " + Defenseurs);
 		//fin tri
 		
 		ArrayList <Integer> Attdefaite =  new  ArrayList<Integer>(); // on stock les  perdants qu'on supprimera ensuite
@@ -153,8 +153,8 @@ public class ArmeeConsole {
 		for (int i=Attdefaite.size()-1;i>=0;i--) {
 			
 			int j=Attdefaite.get(i);
-			System.out.println("l'attaquant " + j + " a perdu TCHIN TCHANG");
-			System.out.println("le d�fenseur " + j + " a gagn� MATUIDI CHARO");
+			System.out.println("l'attaquant " + j + " a perdu");
+			System.out.println("le defenseur " + j + " a gagne");
 			ArmeeAttaquante.remove(j);
 		}
 	//  }
@@ -162,15 +162,15 @@ public class ArmeeConsole {
 		System.out.println(Defdefaite);
 		for (int i=Defdefaite.size()-1;i>=0;i--) {
 			int j=Defdefaite.get(i);
-			System.out.println("l'attaquant " + j + " a gagn�");
-			System.out.println("le d�fenseur " + j + " a perdu");
+			System.out.println("l'attaquant " + j + " a gagne");
+			System.out.println("le defenseur " + j + " a perdu");
 			ArmeeAttaquee.remove(j);
 		}
 		
-		System.out.println("Attaque apr�s combat: " + Attaquants);
-		System.out.println("D�fense apr�s combat : " + Defenseurs);
-		System.out.println("Arm�e offensive apr�s combat: " + ArmeeAttaquante);
-		System.out.println("Arm�e d�fensive apr�s combat : " + ArmeeAttaquee);
+		System.out.println("Attaque apres combat: " + Attaquants);
+		System.out.println("Defense apres combat : " + Defenseurs);
+		System.out.println("Armee offensive apres combat: " + ArmeeAttaquante);
+		System.out.println("Armee defensive apres combat : " + ArmeeAttaquee);
 }
 
 public void ajouterSoldat(ArrayList<Unite> Armee) {
@@ -191,21 +191,21 @@ public void ajouterCanon(ArrayList<Unite> Armee) {
 	}
 }
 
-public void deplacer(Unite unite,int IDterritoireActuel,int IDNouveauTerritoire,ArrayList<Integer> idTerritoiresAdjacents,ArrayList<Unite> armeeNouveauTerritoire,ArrayList<Unite> armeeTerritoireActuel) {
-	int idTerritoireActuel=IDterritoireActuel;
+public static void deplacer(int IDterritoireActuel,int IDNouveauTerritoire,int [] idTerritoiresAdjacents) {
 	int idNouveauTerritoire=IDNouveauTerritoire;
-	int mouv=unite.getMouvement();
 	boolean adjacent=false;
-	
-	for (int i=0;i<idTerritoiresAdjacents.size();i++) {
-		int compareId=idTerritoiresAdjacents.get(i);
-		if (idNouveauTerritoire==compareId) {
-			adjacent=true;
+	for (Unite unite : Territory.getTerritoryFromID(IDterritoireActuel).getTroupes()) {
+		int mouv=unite.getMouvement();
+		for (int i=0;i<idTerritoiresAdjacents.length;i++) {
+			int compareId=idTerritoiresAdjacents[i];
+			if (idNouveauTerritoire==compareId) {
+				adjacent=true;
+			}
 		}
-	}
-	if (adjacent==true && mouv!=0) {
-		armeeNouveauTerritoire.add(unite);
-		armeeTerritoireActuel.remove(unite);
+		if (adjacent==true && mouv!=0) {
+			Territory.getTerritoryFromID(IDterritoireActuel).getTroupes().add(unite);
+			Territory.getTerritoryFromID(idNouveauTerritoire).getTroupes().remove(unite);
+			}
 		}
 	}
 }

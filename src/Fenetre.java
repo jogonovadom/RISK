@@ -34,12 +34,8 @@ public class Fenetre extends JFrame {
 	private JLabel labelCanon = new JLabel("Canon");
 	private JLabel labelSoldat= new JLabel("Soldat");
 	private JButton valider = new JButton("Valider");
-	private int numeroMonTerritoire;
-	private int numeroTerritoireAdverse;
 
-	public Fenetre(int numeroMonTerritoire, int numeroTerritoireAdverse){
-		this.numeroMonTerritoire=numeroMonTerritoire;
-		this.numeroTerritoireAdverse=numeroTerritoireAdverse;
+	public Fenetre(){
 		this.setTitle("choix att");
 		this.setSize(700, 500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -162,22 +158,6 @@ class ItemAction implements ActionListener{
 
 	public void addArmee(Armee armee) {
 		this.armees.add(armee);
-	}
-
-	public int getNumeroMonTerritoire() {
-		return numeroMonTerritoire;
-	}
-
-	public void setNumeroMonTerritoire(int numeroMonTerritoire) {
-		this.numeroMonTerritoire = numeroMonTerritoire;
-	}
-
-	public int getNumeroTerritoireAdverse() {
-		return numeroTerritoireAdverse;
-	}
-
-	public void setNumeroTerritoireAdverse(int numeroTerritoireAdverse) {
-		this.numeroTerritoireAdverse = numeroTerritoireAdverse;
 	}
 }
    

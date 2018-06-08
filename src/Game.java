@@ -164,33 +164,71 @@ public class Game {
     					double Ym=StdDraw.mouseY();
     					if ((Xm>=465)&&(Xm<626)&&(Ym>843)&&(Ym<886)) {
     						if (StdDraw.isMousePressed()) {
+    							int cptAtq=0;
     							fenetreSelectionMonTerritoire = new JOptionPane();
     							fenetreSelectionMonTerritoire.showMessageDialog(null, "Selectionne ton territoire", "Territoire qui va attaquer", JOptionPane.INFORMATION_MESSAGE);
-    							cptTempo=2;
+    							while (cptAtq==0) {
+    								double Xmatq=StdDraw.mouseX();
+    								double Ymatq=StdDraw.mouseY();
+    								int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xmatq,Ymatq);
+    								if (numeroTerritoireSelectionne!=0) {
+    									fenetreSelectionTerritoireAdverse = new JOptionPane();
+    									fenetreSelectionTerritoireAdverse.showMessageDialog(null, "Tu as sélectionné le territoire " + Territory.getTerritoryFromID(numeroTerritoireSelectionne).getNom() + "selectionne maintenant le territoire adverse", "Territoire a attaquer", JOptionPane.INFORMATION_MESSAGE);
+    									numeroMonTerritoire=numeroTerritoireSelectionne;
+    								cptAtq=1;
+    								}
+    							}
+    							while (cptAtq==1) {
+    								double Xmatq=StdDraw.mouseX();
+    								double Ymatq=StdDraw.mouseY();
+    								int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xmatq,Ymatq);
+    								if (numeroTerritoireSelectionne!=0) {
+    									numeroTerritoireAdverse=numeroTerritoireSelectionne;
+    									ArmeeConsole.attaquer(TourJoueur,joueur,numeroMonTerritoire,numeroTerritoireAdverse);
+    									cptTempo=1;
+    									cptAtq=2;
+    								}
+    			    				}
+    						}
+    					}
+    					else if ((Xm>=682)&&(Xm<847)&&(Ym>843)&&(Ym<886)) {
+    						if (StdDraw.isMousePressed()) {
+    							int cptDep=0;
+    							fenetreSelectionMonTerritoire = new JOptionPane();
+    							fenetreSelectionMonTerritoire.showMessageDialog(null, "Selectionne ton territoire", "Troupes a deplacer", JOptionPane.INFORMATION_MESSAGE);
+    							while (cptDep==0) {
+    								double Xmdep=StdDraw.mouseX();
+    								double Ymdep=StdDraw.mouseY();
+    								int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xmdep,Ymdep);
+    								if (numeroTerritoireSelectionne!=0) {
+    									fenetreSelectionTerritoireAdverse = new JOptionPane();
+    									fenetreSelectionTerritoireAdverse.showMessageDialog(null, "Tu as sélectionné le sur lequel tu veux aller", "Troupes a deplacer", JOptionPane.INFORMATION_MESSAGE);
+    									numeroMonTerritoire=numeroTerritoireSelectionne;
+    								cptDep=1;
+    								}
+    							}
+    							while (cptDep==1) {
+    								double Xmdep=StdDraw.mouseX();
+    								double Ymdep=StdDraw.mouseY();
+    								int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xmdep,Ymdep);
+    								if (numeroTerritoireSelectionne!=0) {
+    									numeroTerritoireAdverse=numeroTerritoireSelectionne;
+    									ArmeeConsole.deplacer(numeroMonTerritoire,numeroTerritoireAdverse,Territory.getTerritoryFromID(numeroTerritoireAdverse).getTerritoiresAdj());
+    									cptTempo=1;
+    									cptDep=2;
+    								}
+    			    				}
+    						}
+    					}
+    					else if ((Xm>=900)&&(Xm<1065)&&(Ym>843)&&(Ym<886)) {
+    						if (StdDraw.isMousePressed()) {
+    							fenetreSelectionTerritoireAdverse = new JOptionPane();
+							fenetreSelectionTerritoireAdverse.showMessageDialog(null, "Tu as passé ton tour", "Passe ton tour", JOptionPane.INFORMATION_MESSAGE);
+    							TourJoueur=1;
+							cptTempo=0;
     						}
     					}
 				}
-				while (cptTempo==2) {
-					double Xm=StdDraw.mouseX();
-					double Ym=StdDraw.mouseY();
-					int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xm,Ym);
-					if (numeroTerritoireSelectionne!=0) {
-						fenetreSelectionTerritoireAdverse = new JOptionPane();
-						fenetreSelectionTerritoireAdverse.showMessageDialog(null, "Tu as sélectionné le territoire " + Territory.getTerritoryFromID(numeroTerritoireSelectionne).getNom() + "selectionne maintenant le territoire adverse", "Territoire a attaquer", JOptionPane.INFORMATION_MESSAGE);
-						numeroMonTerritoire=numeroTerritoireSelectionne;
-						
-					cptTempo=3;
-					}
-				}
-				while (cptTempo==3) {
-					double Xm=StdDraw.mouseX();
-					double Ym=StdDraw.mouseY();
-					int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xm,Ym);
-					if (numeroTerritoireSelectionne!=0) {
-						numeroTerritoireAdverse=numeroTerritoireSelectionne;
-						ArmeeConsole.attaquer(TourJoueur,joueur,numeroMonTerritoire,numeroTerritoireAdverse);
-					}
-    				}
 			}
 		}
 	}

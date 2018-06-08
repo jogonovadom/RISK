@@ -121,7 +121,7 @@ public class Armee {
 		System.out.println("Attaque : " + Attaquants);
 		Collections.sort(Defenseurs);
 		Collections.reverse(Defenseurs);
-		System.out.println("D�fense : " + Defenseurs);
+		System.out.println("Defense : " + Defenseurs);
 		//fin tri
 		
 		ArrayList <Integer> Attdefaite =  new  ArrayList<Integer>(); // on stock les  perdants qu'on supprimera ensuite
@@ -145,8 +145,8 @@ public class Armee {
 		for (int i=Attdefaite.size()-1;i>=0;i--) {
 			
 			int j=Attdefaite.get(i);
-			System.out.println("l'attaquant " + j + " a perdu TCHIN TCHANG");
-			System.out.println("le d�fenseur " + j + " a gagn� MATUIDI CHARO");
+			System.out.println("l'attaquant " + j + " a perdu");
+			System.out.println("le defenseur " + j + " a gagne");
 			Unite.remove(j);
 		}
 	//  }
@@ -154,15 +154,15 @@ public class Armee {
 		System.out.println(Defdefaite);
 		for (int i=Defdefaite.size()-1;i>=0;i--) {
 			int j=Defdefaite.get(i);
-			System.out.println("l'attaquant " + j + " a gagn�");
-			System.out.println("le d�fenseur " + j + " a perdu");
+			System.out.println("l'attaquant " + j + " a gagne");
+			System.out.println("le defenseur " + j + " a perdu");
 			Unite2.remove(j);
 		}
 		
-		System.out.println("Attaque apr�s combat: " + Attaquants);
-		System.out.println("D�fense apr�s combat : " + Defenseurs);
-		System.out.println("Arm�e offensive apr�s combat: " + Unite);
-		System.out.println("Arm�e d�fensive apr�s combat : " + Unite2);
+		System.out.println("Attaque apres combat: " + Attaquants);
+		System.out.println("Defense apres combat : " + Defenseurs);
+		System.out.println("Armee offensive apres combat: " + Unite);
+		System.out.println("Armee defensive apres combat : " + Unite2);
 }
 
 public void ajouterSoldat(ArrayList<Unite> Armee) {
