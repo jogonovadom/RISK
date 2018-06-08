@@ -7,9 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import edu.princeton.cs.introcs.StdDraw;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,8 +17,6 @@ public class Armee {
 	{
 		
 	}
-
-	
 	public void attaquer(ArrayList<Unite> Attk,ArrayList<Unite> Def) {
 		
 		ArrayList<Unite> Unite = Attk;
@@ -34,17 +30,17 @@ public class Armee {
 		ArrayList <Integer> Defenseurs = new ArrayList<Integer>();
 		
 		if (Attk.size()>Def.size()) {
-			 min=Def.size();
-			}
+			min=Def.size();
+		}
 			
 		if (Attk.size()<Def.size()) {
-				min=Attk.size();
-				}
+			min=Attk.size();
+		}
 			
 		for (int i=0;i<Unite.size();i++) {
 			
 			System.out.println(Unite.get(i).getClass().getName());
-			String type =Unite.get(i).getClass().getName(); //On récupère le type de l'Unite
+			String type =Unite.get(i).getClass().getName(); //On rï¿½cupï¿½re le type de l'Unite
 			
 			if (type=="Soldat") {
 				int Puissance =Soldat.getPuissanceMin() + (int) ( (Math.random()*(Soldat.getPuissanceMax() - Soldat.getPuissanceMin()+1)));
@@ -119,13 +115,13 @@ public class Armee {
 			}
 			System.out.println(Unite);
 		}
-		//tri ordre décroissant
+		//tri ordre dï¿½croissant
 		Collections.sort(Attaquants);
 		Collections.reverse(Attaquants);
 		System.out.println("Attaque : " + Attaquants);
 		Collections.sort(Defenseurs);
 		Collections.reverse(Defenseurs);
-		System.out.println("Défense : " + Defenseurs);
+		System.out.println("Dï¿½fense : " + Defenseurs);
 		//fin tri
 		
 		ArrayList <Integer> Attdefaite =  new  ArrayList<Integer>(); // on stock les  perdants qu'on supprimera ensuite
@@ -150,7 +146,7 @@ public class Armee {
 			
 			int j=Attdefaite.get(i);
 			System.out.println("l'attaquant " + j + " a perdu TCHIN TCHANG");
-			System.out.println("le défenseur " + j + " a gagné MATUIDI CHARO");
+			System.out.println("le dï¿½fenseur " + j + " a gagnï¿½ MATUIDI CHARO");
 			Unite.remove(j);
 		}
 	//  }
@@ -158,15 +154,15 @@ public class Armee {
 		System.out.println(Defdefaite);
 		for (int i=Defdefaite.size()-1;i>=0;i--) {
 			int j=Defdefaite.get(i);
-			System.out.println("l'attaquant " + j + " a gagné");
-			System.out.println("le défenseur " + j + " a perdu");
+			System.out.println("l'attaquant " + j + " a gagnï¿½");
+			System.out.println("le dï¿½fenseur " + j + " a perdu");
 			Unite2.remove(j);
 		}
 		
-		System.out.println("Attaque après combat: " + Attaquants);
-		System.out.println("Défense après combat : " + Defenseurs);
-		System.out.println("Armée offensive après combat: " + Unite);
-		System.out.println("Armée défensive après combat : " + Unite2);
+		System.out.println("Attaque aprï¿½s combat: " + Attaquants);
+		System.out.println("Dï¿½fense aprï¿½s combat : " + Defenseurs);
+		System.out.println("Armï¿½e offensive aprï¿½s combat: " + Unite);
+		System.out.println("Armï¿½e dï¿½fensive aprï¿½s combat : " + Unite2);
 }
 
 public void ajouterSoldat(ArrayList<Unite> Armee) {
@@ -187,9 +183,9 @@ public void ajouterCanon(ArrayList<Unite> Armee) {
 	}
 }
 
-public void deplacer(Unite unite,Territory territoireActuel,Territory nouveauTerritoire,ArrayList<Integer> idTerritoiresAdjacents,ArrayList<Unite> armeeNouveauTerritoire,ArrayList<Unite> armeeTerritoireActuel) {
-	int idTerritoireActuel=territoireActuel.getID();
-	int idNouveauTerritoire=nouveauTerritoire.getID();
+public void deplacer(Unite unite,int IDterritoireActuel,int IDNouveauTerritoire,ArrayList<Integer> idTerritoiresAdjacents,ArrayList<Unite> armeeNouveauTerritoire,ArrayList<Unite> armeeTerritoireActuel) {
+	int idTerritoireActuel=IDterritoireActuel;
+	int idNouveauTerritoire=IDNouveauTerritoire;
 	int mouv=unite.getMouvement();
 	boolean adjacent=false;
 	
@@ -202,8 +198,6 @@ public void deplacer(Unite unite,Territory territoireActuel,Territory nouveauTer
 	if (adjacent==true && mouv!=0) {
 		armeeNouveauTerritoire.add(unite);
 		armeeTerritoireActuel.remove(unite);
-		
-			
 		}
 	}
 }
