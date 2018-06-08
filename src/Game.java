@@ -3,6 +3,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 import edu.princeton.cs.introcs.StdDraw;
 public class Game {
@@ -33,23 +34,18 @@ public class Game {
 		ArrayList<ArrayList<Integer>> ArrayListTerritoire = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Joueur> joueur = new ArrayList<Joueur>();
 		for (int i=0; i<NJ;i++) {
-			joueur.add(new Joueur(i,null,0));
+			joueur.add(new Joueur(i,null,0,0));
 			ArrayListTerritoire.add(new ArrayList<Integer>());
 		}
 		repartitionTerritoires(ArrayListTerritoire, joueur);
 		placerLesPremieresUnites();
-		ArrayList<Integer> PremieresUnitesAPlacer=repartitionTroupes(ArrayListTerritoire, joueur);
+		int PremieresUnitesAPlacer=repartitionTroupes(ArrayListTerritoire, joueur);
 		afficherLesUnites(informationsUnites());
 		for (int i=0;i<=NJ-1;i++) {
-			placerDesUnites(PremieresUnitesAPlacer, i, joueur);
+			Joueur.placerDesUnites(PremieresUnitesAPlacer, i, joueur);
 			afficherLesUnites(informationsUnites());
 		}
-		int TourJoueur = 0;
-		int i=0;
-		while (!verifierVictoire(joueur)) {
-			deroulementDunTour(i);
-		}
-		deroulementDunTour(2);
+		deroulementDuJeu(joueur);
 	}
 	public void repartitionTerritoires(ArrayList<ArrayList<Integer>> ArrayListTerritoire, ArrayList<Joueur> joueur) {
 		//répartition des territoires
@@ -71,11 +67,11 @@ public class Game {
 			joueur.get(i).setTerritoiresControles(ArrayListTerritoire.get(i));
 		}
 	}
-	public static ArrayList<Integer> repartitionTroupes(ArrayList<ArrayList<Integer>> ArrayListTerritoire, ArrayList<Joueur> joueur) {
-		ArrayList<Integer> UnitesControlees = new ArrayList<Integer>();
+	public static int repartitionTroupes(ArrayList<ArrayList<Integer>> ArrayListTerritoire, ArrayList<Joueur> joueur) {
+		int UnitesControlees=0;
 		for (int i=0;i<=NJ-1;i++){
 			joueur.get(i).setNombreUnitesControlees(40-5*(NJ-2) - ArrayListTerritoire.get(i).size());
-			UnitesControlees.add(joueur.get(i).getNombreUnitesControlees());
+			UnitesControlees=joueur.get(i).getNombreUnitesControlees();
 		}
 		return UnitesControlees;
 	}
@@ -86,70 +82,7 @@ public class Game {
 			Territory.getTerritoryFromID(i).setTroupes(armeeTemp);
 		}
 	}
-	public void placerDesUnites(ArrayList<Integer> unitesAPlacer, int quelJoueur, ArrayList<Joueur> joueur) {
-		//cette fonction permet de placer des troupes en donnant le numéro du joueur
-		int NombreUniteRestantes = joueur.get(quelJoueur).getNombreUnitesControlees();
-		ArrayList<String> NomsTerritoiresControlees = new ArrayList<String>() ;
-		int LongueurListTerritoiresControlees = joueur.get(quelJoueur).getTerritoiresControles().size();
-		for (int i=0; i<LongueurListTerritoiresControlees;i++) {
-			int Territoirei = joueur.get(quelJoueur).getTerritoiresControles().get(i);
-			System.out.println("territoire contrôlé n° " + joueur.get(quelJoueur).getTerritoiresControles().get(i) + ": " + Territory.getTerritoryFromID(Territoirei).getNom());
-		}
-		while (NombreUniteRestantes !=0) {
-			System.out.println("Le joueur " + (quelJoueur+1) + " doit placer ses " + NombreUniteRestantes +" unités restantes");
-			System.out.println("Sur quel territoire voulez vous placer des troupes ?");
-			System.out.println("entrez le numéro du territoire");
-			Scanner scTerritoire = new Scanner(System.in);
-			Territory TerritoireChoisi;
-			int IDTerritoireChoisi = scTerritoire.nextInt();
-			boolean PossederTerritoire=false;
-			for (int i=0;i<joueur.get(quelJoueur).getTerritoiresControles().size();i++) {
-				if (IDTerritoireChoisi==joueur.get(quelJoueur).getTerritoiresControles().get(i)) {
-					PossederTerritoire=true;
-				}
-			}
-			if (PossederTerritoire==true) {
-				TerritoireChoisi=Territory.getTerritoryFromID(IDTerritoireChoisi);
-				int NombreSoldatChoisi;
-				Scanner scNombreSoldat = new Scanner(System.in);
-				System.out.println("Combien de Soldat voulez vous?");
-				NombreSoldatChoisi = scTerritoire.nextInt(); 
-				int NombreCavalierChoisi;
-				Scanner scNombreCavalier = new Scanner(System.in);
-				System.out.println("Combien de Cavalier voulez vous?");
-				NombreCavalierChoisi = scTerritoire.nextInt();
-				int NombreCanonChoisi;
-				Scanner scNombreCanon = new Scanner(System.in);
-				System.out.println("Combien de Canon voulez vous?");
-				NombreCanonChoisi = scTerritoire.nextInt();
-				for (int i=1; i<=NombreSoldatChoisi;i++) {
-					TerritoireChoisi.addTroupes(new Soldat());
-					NombreUniteRestantes=NombreUniteRestantes-1;
-				}
-				for (int i=1; i<=NombreCavalierChoisi;i++) {
-					if (NombreUniteRestantes>=3) {
-						TerritoireChoisi.addTroupes(new Cavalier());
-						NombreUniteRestantes=NombreUniteRestantes-3;
-					}
-					else {
-						System.out.println("Vous n'avez pas assez de place pour un cavalier, il vous reste" + NombreUniteRestantes + "troupes");
-					}
-				}
-				for (int i=1; i<=NombreCanonChoisi;i++) {
-					if (NombreUniteRestantes>=7) {
-						TerritoireChoisi.addTroupes(new Canon());
-						NombreUniteRestantes=NombreUniteRestantes-7;
-					}
-					else {
-						System.out.println("Vous n'avez pas assez de place pour un canon, il vous reste" + NombreUniteRestantes + "troupes");
-					}
-				}
-			}
-			else {
-				System.out.println("ce territoire ne vous appartient pas");
-			}
-		}
-	}
+	
 	public ArrayList<int []> informationsUnites() {
 		ArrayList<int []> ArrayListInfoUnite = new ArrayList<int []>();
 		int [] tabSoldat = new int[42];
@@ -217,15 +150,73 @@ public class Game {
 			StdDraw.text(Xi + 26, Yi-3, String.valueOf(tabCanon[i-1])); //afficher le numéro du canon
 		}
 	}
-	public boolean verifierVictoire(ArrayList<Joueur> joueur) {
-		for (int i=0;i<=NJ-1;i++) {
+	public static boolean verifierVictoire(ArrayList<Joueur> joueur) {
+		for (int i=0;i<NJ;i++) {
 			if (joueur.get(i).getTerritoiresControles().size()==42) {
 				return true;
 			}
 		}
 		return false;
 	}
-	public void deroulementDunTour(int i) {
-		
+	public void deroulementDuJeu(ArrayList<Joueur> joueur) {
+		int TourJoueur = 0;
+		int cptTempo=0;
+		while (!verifierVictoire(joueur)) {
+			if (cptTempo==0) {
+				int RenfortAPlacer=Joueur.renfort(TourJoueur,joueur);
+				Joueur.placerDesUnites(RenfortAPlacer, TourJoueur, joueur);
+				joueur.get(TourJoueur).setTerritoiresCaptures(0);
+				cptTempo++;
+			}
+			else {
+				JOptionPane fenetreSelectionMonTerritoire;
+				JOptionPane fenetreSelectionTerritoireAdverse;
+				int numeroMonTerritoire=0;
+				int numeroTerritoireAdverse=0;
+				while (cptTempo==1) {
+					double Xm=StdDraw.mouseX();
+    					double Ym=StdDraw.mouseY();
+    					if ((Xm>=465)&&(Xm<626)&&(Ym>843)&&(Ym<886)) {
+    						if (StdDraw.isMousePressed()) {
+    							fenetreSelectionMonTerritoire = new JOptionPane();
+    							fenetreSelectionMonTerritoire.showMessageDialog(null, "Selectionne ton territoire", "Territoire qui va attaquer", JOptionPane.INFORMATION_MESSAGE);
+    							cptTempo=2;
+    						}
+    					}
+				}
+				while (cptTempo==2) {
+					double Xm=StdDraw.mouseX();
+					double Ym=StdDraw.mouseY();
+					int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xm,Ym);
+					if (numeroTerritoireSelectionne!=0) {
+						fenetreSelectionTerritoireAdverse = new JOptionPane();
+						fenetreSelectionTerritoireAdverse.showMessageDialog(null, "Tu as sélectionné le territoire " + Territory.getTerritoryFromID(numeroTerritoireSelectionne).getNom() + "selectionne maintenant le territoire adverse", "Territoire a attaquer", JOptionPane.INFORMATION_MESSAGE);
+						numeroMonTerritoire=numeroTerritoireSelectionne;
+					cptTempo=3;
+					}
+				}
+				while (cptTempo==3) {
+					double Xm=StdDraw.mouseX();
+					double Ym=StdDraw.mouseY();
+					int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xm,Ym);
+					if (numeroTerritoireSelectionne!=0) {
+						numeroTerritoireAdverse=numeroTerritoireSelectionne;
+						Fenetre F = new Fenetre(numeroMonTerritoire,numeroTerritoireAdverse);
+					}
+    				}
+			}
+		}
+	}
+	public int getTerritoryIDAvecClick(double X, double Y) {
+		for (int i=1;i<42;i++) {
+			if ((X>Territory.getTerritoryFromID(i).getXterritory()-10)&&(X<Territory.getTerritoryFromID(i).getXterritory()+10)) {
+				if ((Y>Territory.getTerritoryFromID(i).getYterritory()-10)&&(Y<Territory.getTerritoryFromID(i).getYterritory()+10)) {
+					if (StdDraw.isMousePressed()) {
+						return Territory.getTerritoryFromID(i).getIDterritory();
+					}
+				}
+			}
+		}
+		return 0;
 	}
 }
