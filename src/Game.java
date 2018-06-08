@@ -8,27 +8,13 @@ import javax.swing.JOptionPane;
 import edu.princeton.cs.introcs.StdDraw;
 public class Game {
 	Game suivant;
-	static int NJ =2;
+	static int NJ =Menu.getnombreJoueur();
 	public Game(int NJ) {
 		this.NJ=NJ;
 	}
 	
 	public void Afficher_Plateau() {
-		if (NJ==2) {
 			StdDraw.picture(800, 450, "Images/Risk_game_map_complete.png");
-		}
-		else if (NJ==3) {
-			StdDraw.picture(800, 450, "Images/Risk_game_map_complete.png");
-		}
-		else if (NJ==4) {
-			StdDraw.picture(800, 450, "Images/Risk_game_map_complete.png");
-		}
-		else if (NJ==5) {
-			StdDraw.picture(800, 450, "Images/Risk_game_map_complete.png");
-		}
-		else if (NJ==6) {
-			StdDraw.picture(800, 450, "Images/Risk_game_map_complete.png");
-		}
 	}
 	public void gameInit() {
 		ArrayList<ArrayList<Integer>> ArrayListTerritoire = new ArrayList<ArrayList<Integer>>();
@@ -192,6 +178,7 @@ public class Game {
 						fenetreSelectionTerritoireAdverse = new JOptionPane();
 						fenetreSelectionTerritoireAdverse.showMessageDialog(null, "Tu as sélectionné le territoire " + Territory.getTerritoryFromID(numeroTerritoireSelectionne).getNom() + "selectionne maintenant le territoire adverse", "Territoire a attaquer", JOptionPane.INFORMATION_MESSAGE);
 						numeroMonTerritoire=numeroTerritoireSelectionne;
+						
 					cptTempo=3;
 					}
 				}
@@ -201,7 +188,7 @@ public class Game {
 					int numeroTerritoireSelectionne=getTerritoryIDAvecClick(Xm,Ym);
 					if (numeroTerritoireSelectionne!=0) {
 						numeroTerritoireAdverse=numeroTerritoireSelectionne;
-						Fenetre F = new Fenetre(numeroMonTerritoire,numeroTerritoireAdverse);
+						ArmeeConsole.attaquer(TourJoueur,joueur,numeroMonTerritoire,numeroTerritoireAdverse);
 					}
     				}
 			}
